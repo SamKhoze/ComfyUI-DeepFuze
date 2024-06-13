@@ -45,7 +45,7 @@ else:
     except:
         if "VHS_USE_IMAGEIO_FFMPEG" in os.environ:
             raise
-        logger.warn("Failed to import imageio_ffmpeg")
+        print("Failed to import imageio_ffmpeg")
     if "VHS_USE_IMAGEIO_FFMPEG" in os.environ:
         ffmpeg_path = imageio_ffmpeg_path
     else:
@@ -57,7 +57,7 @@ else:
         if os.path.isfile("ffmpeg.exe"):
             ffmpeg_paths.append(os.path.abspath("ffmpeg.exe"))
         if len(ffmpeg_paths) == 0:
-            logger.error("No valid ffmpeg found.")
+            print("No valid ffmpeg found.")
             ffmpeg_path = None
         elif len(ffmpeg_paths) == 1:
             #Evaluation of suitability isn't required, can take sole option
@@ -162,7 +162,7 @@ def get_audio(file, start_time=0, duration=0):
         res =  subprocess.run(args + ["-f", "wav", "-"],
                               stdout=subprocess.PIPE, check=True).stdout
     except subprocess.CalledProcessError as e:
-        logger.warning(f"Failed to extract audio from: {file}")
+        print(f"Failed to extract audio from: {file}")
         return False
     return res
 
