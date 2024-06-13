@@ -1077,18 +1077,18 @@ class TTS_generation:
 
     CATEGORY = "DeepFuze"  # Category for the node in the UI
 
-    def generate_audio(self, audio, text,device):
+    def generate_audio(self, audio, text,device,supported_language):
         print(text)
+        language = supported_language.split("(")[1][:-1]
         try:
-            tts.to(device)
-        except:pass
-        try:
-            file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
-            write(file_path,audio.sample_rate,audio.audio_data)
-            tts.tts_to_file(text=text, speaker_wav=file_path, language="en", file_path=file_path)
-            audio_file = AudioSegment.from_file(file_path, format="wav")
-            audio_data = AudioData(audio_file)
-        except:pass
+            ...
+            # tts.to(device)
+        except Exception as e:print(e)
+        file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
+        write(file_path,audio.sample_rate,audio.audio_data)
+        tts.tts_to_file(text=text, speaker_wav=file_path, language=language, file_path=file_path)
+        audio_file = AudioSegment.from_file(file_path, format="wav")
+        audio_data = AudioData(audio_file)
         try:
             tts.to("cpu")
         except: pass
