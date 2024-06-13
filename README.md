@@ -46,7 +46,7 @@ Below are the two ComfyUI repositories required to load video and audio. Install
 ----
 
 ### For MAC users please set the environment variable before running it
-This method has been tested on a M1 and M3 Mac 
+This method has been tested on a M1 and M3 Mac, You must run the below code on your terminal window for Mac Metal Performance Shaders (MPS) Apple's specialized solution for high-performance GPU programming on their devices. Integrating closely with the Metal framework, MPS provides a suite of highly optimized shaders for graphics and computing tasks, which is particularly beneficial in machine learning applications.
 
 ```
 export PYTORCH_ENABLE_MPS_FALLBACK=1
@@ -54,6 +54,9 @@ export PYTORCH_ENABLE_MPS_FALLBACK=1
 ### macOS needs to install the original dlib.
 ```
 pip install dlib 
+```
+```
+pip install TTS 
 ```
 ---
 
@@ -73,12 +76,12 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `video_info`: Output video metadata.
 
 **DeepFuze Lipsync Features:**
-- `enhancer`: You can add an enhancer to improve the quality of the generated video. Using gfpgan or RestoreFormer to enhance the generated face via face restoration network
-- `frame_enhancer`: You can add an enhancing the whole frame of video
-- `face_mask_padding_left` : padding to left on the face while lipsycing
-- `face_mask_padding_right` : padding to right on the face while lipsycing
-- `face_mask_padding_bottom` : padding to bottom on the face while lipsycing
-- `face_mask_padding_top` : padding to top on the face while lipsycing
+- `face_enhancer`: You can add an enhancer to improve the quality of the generated video. Using gfpgan or RestoreFormer to enhance the generated face via face restoration network
+- `frame_enhancer`: You can add an enhance the whole frame of the video
+- `face_mask_padding_left` : padding to left on the face while lipsyncing
+- `face_mask_padding_right` : padding to the right on the face while lipsyncing
+- `face_mask_padding_bottom` : padding to the bottom on the face while lipsyncing
+- `face_mask_padding_top` : padding to the top on the face while lipsyncing
 - `device` : [cpu,gpu]
 - `trim_frame_start`: remove the number of frames from start
 - `trim_frame_end`: remove the number of frames from end
@@ -134,7 +137,7 @@ print(f"Lipsynced video saved at {output_path}")
 
 # Acknowledgements
 
-This repository could not have been completed without the contributions from [SadTalker](https://github.com/OpenTalker/SadTalker/tree/main), [Facexlib](https://github.com/xinntao/facexlib), [GFPGAN](https://github.com/TencentARC/GFPGAN), [GPEN](https://github.com/yangxy/GPEN), [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN), [TTS](https://github.com/coqui-ai/TTS/tree/dev), [SSD](https://pytorch.org/hub/nvidia_deeplearningexamples_ssd/), and [wav2lip](https://github.com/Rudrabha/Wav2Lip), 
+This repository could not have been completed without the contributions from [FaceFusion](https://github.com/facefusion/facefusion), [InsightFace](https://github.com/deepinsight/insightface),[SadTalker](https://github.com/OpenTalker/SadTalker/tree/main), [Facexlib](https://github.com/xinntao/facexlib), [GFPGAN](https://github.com/TencentARC/GFPGAN), [GPEN](https://github.com/yangxy/GPEN), [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN), [TTS](https://github.com/coqui-ai/TTS/tree/dev), [SSD](https://pytorch.org/hub/nvidia_deeplearningexamples_ssd/), and [wav2lip](https://github.com/Rudrabha/Wav2Lip), 
 
 1. Please carefully read and comply with the open-source license applicable to this code and models before using it. 
 2. Please carefully read and comply with the intellectual property declaration applicable to this code and models before using it.
