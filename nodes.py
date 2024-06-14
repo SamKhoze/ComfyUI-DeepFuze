@@ -942,8 +942,11 @@ class DeepFuzeAdavance:
             str(trim_frame_start),
             '--trim-frame-end',
             str(trim_frame_end),
-            # '--face-mask-padding',
-            # [str(face_mask_padding_top),str(face_mask_padding_bottom),str(face_mask_padding_left),str(face_mask_padding_right)],
+            '--face-mask-padding',
+                f'{str(face_mask_padding_top)}',
+                f'{str(face_mask_padding_bottom)}',
+                f'{str(face_mask_padding_left)}',
+                f'{str(face_mask_padding_right)}',
             '--headless'
         ]
         if device=="gpu":
@@ -984,19 +987,11 @@ class DeepFuzeAdavance:
             filename = enhanced_filename
 
         print(result.stderr)
-        try:
-            os.system(f"rm {audio_file}")
-        except: pass
+        # try:
+        #     os.system(f"rm {audio_file}")
+        # except: pass
         return load_video_cv(filename,0,'Disabled',512,512,0,0,1)
-        previews = [
-            {
-                "filename": file,
-                "subfolder": subfolder,
-                "type": "output" if save_output else "temp",
-                "format": format,
-            }
-        ]
-        return {"ui": {"gifs": previews}, "result": ((save_output, output_files),)}
+
 
 
 import folder_paths
@@ -1095,16 +1090,87 @@ class TTS_generation:
         return (audio_data,)
 
 
+
+class DeepfuzePreview:
+    def __init__(self):
+        self.output_dir = folder_paths.get_output_directory()
+        self.type = "output"
+        self.prefix_append = ""
+        self.compress_level = 4
+
+    @classmethod
+    def INPUT_TYPES(self):
+        return {
+                "required": {
+                    "images": ("IMAGE",),
+                    "face_mask_padding_left": ("INT",{"default":0,"min":0,"max":30,"step":1}),
+                    "face_mask_padding_right": ("INT",{"default":0,"min":0,"max":30,"step":1}),
+                    "face_mask_padding_bottom": ("INT",{"default":0,"min":0,"max":30,"step":1}),
+                    "face_mask_padding_top": ("INT",{"default":0,"min":0,"max":30,"step":1}),
+                }
+            }   
+    RETURN_TYPES = ()
+    FUNCTION = "test"  # Entry-point method name
+    OUTPUT_NODE = True
+    CATEGORY = "DeepFuze"  # Category for the node in the UI
+
+    def test(self, images, face_mask_padding_left, face_mask_padding_right,face_mask_padding_bottom,face_mask_padding_top,  filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
+        filename_prefix += self.prefix_append
+        full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0])
+        results = list()
+        for (batch_number, image) in enumerate(images):
+            i = 255. * image.cpu().numpy()
+            img = Image.fromarray(np.clip(i, 0, 255).astype(np.uint8))
+            metadata = None
+            
+            filename_with_batch_num = filename.replace("%batch_num%", str(batch_number))
+            file = f"{filename_with_batch_num}_{counter:05}_.png"
+            img.save(os.path.join(full_output_folder, file), pnginfo=metadata, compress_level=self.compress_level)
+            command = [
+                'python',
+                'run.py',               # Script to run
+                '--frame-processors',
+                "face_debugger",
+                "-t",
+                os.path.join(full_output_folder, file),
+                '-o',
+                os.path.join(full_output_folder, "_"+file),
+                '--face-mask-types',
+                'box', 
+                '--face-mask-padding',
+                f'{str(face_mask_padding_top)}',
+                f'{str(face_mask_padding_bottom)}',
+                f'{str(face_mask_padding_left)}',
+                f'{str(face_mask_padding_right)}',
+                '--headless'
+            ]
+            print(command)
+            # result = subprocess.Popen(" ".join(command),cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+            print(result.stdout)
+            results.append({
+                "filename": "_"+file,
+                "subfolder": subfolder,
+                "type": self.type
+            })
+            counter += 1
+            return { "ui": { "images": results } }
+
+
+
+
+
 NODE_CLASS_MAPPINGS = {
     "DeepFuzeAdavance": DeepFuzeAdavance,
     "TTS_generation":TTS_generation,
     "LLM_node": LLM_node,
-    "PlayBackAudio": PlayBackAudio
-    
+    "PlayBackAudio": PlayBackAudio,
+	"DeepfuzePreview":DeepfuzePreview
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
     "DeepFuzeAdavance": "DeepFuze Lipsync",
     "TTS_generation":"DeepFuze TTS",
     "LLM_node": "Openai LLM",
-    "PlayBackAudio": "Play Audio"
+    "PlayBackAudio": "Play Audio",
+	"DeepfuzePreview": "DeepFuze Padding Preview"
 }
