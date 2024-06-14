@@ -1063,7 +1063,7 @@ class TTS_generation:
     CATEGORY = "DeepFuze"  # Category for the node in the UI
 
     def generate_audio(self, audio, text,device,supported_language):
-		print(text)
+        print(text)
         language = supported_language.split("(")[1][:-1]
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
         write(file_path,audio.sample_rate,audio.audio_data)
