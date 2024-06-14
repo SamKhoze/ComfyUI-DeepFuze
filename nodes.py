@@ -624,10 +624,10 @@ class DeepFuzeAdavance:
                 "audio": ("AUDIO",),
                 "enhancer": ("None,codeformer,gfpgan_1.2,gfpgan_1.3,gfpgan_1.4,gpen_bfr_256,gpen_bfr_512,gpen_bfr_1024,gpen_bfr_2048,restoreformer_plus_plus".split(","),{"default":'None'}),
                 "frame_enhancer": ("None,clear_reality_x4,lsdir_x4,nomos8k_sc_x4,real_esrgan_x2,real_esrgan_x2_fp16,real_esrgan_x4,real_esrgan_x4_fp16,real_hatgan_x4,span_kendata_x4,ultra_sharp_x4".split(","),{"default":'None'}),
-                "face_mask_padding_left": ("FLOAT",{"default":0,"min":0,"max":3,"step":0.1}),
-                "face_mask_padding_right": ("FLOAT",{"default":0,"min":0,"max":3,"step":0.1}),
-                "face_mask_padding_bottom": ("FLOAT",{"default":0,"min":0,"max":3,"step":0.1}),
-                "face_mask_padding_top": ("FLOAT",{"default":0,"min":0,"max":3,"step":0.1}),
+                "face_mask_padding_left": ("INT",{"default":0,"min":0,"max":30,"step":1}),
+                "face_mask_padding_right": ("INT",{"default":0,"min":0,"max":30,"step":1}),
+                "face_mask_padding_bottom": ("INT",{"default":0,"min":0,"max":30,"step":1}),
+                "face_mask_padding_top": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "trim_frame_start": ("INT",{"default":0,"max":2000},),
                 "trim_frame_end": ("INT",{"default":0,"max":2000},),
                 "device" : (["cpu","gpu"],{"default":"cpu"}),
@@ -943,10 +943,10 @@ class DeepFuzeAdavance:
             '--trim-frame-end',
             str(trim_frame_end),
             '--face-mask-padding',
-                f'{str(face_mask_padding_top)}',
-                f'{str(face_mask_padding_bottom)}',
-                f'{str(face_mask_padding_left)}',
-                f'{str(face_mask_padding_right)}',
+			str(face_mask_padding_top),
+			str(face_mask_padding_bottom),
+			str(face_mask_padding_left),
+			str(face_mask_padding_right),
             '--headless'
         ]
         if device=="gpu":
@@ -998,17 +998,10 @@ import folder_paths
 import torch
 import time
 import os
-from TTS.api import TTS
 from pydub import AudioSegment
 
 from scipy.io.wavfile import write
 
-if torch.backends.mps.is_available():
-    device = "mps"
-elif torch.cuda.is_available():
-    device = "cuda"
-else:
-    device = "cpu"
 
 
 
@@ -1046,9 +1039,6 @@ checkpoint_path_voice = os.path.join(folder_paths.models_dir,"deepfuze")
 print(checkpoint_path_voice)
 
 audio_path = os.path.join(folder_paths.get_input_directory(),"audio")
-
-tts = TTS()
-tts.load_tts_model_by_path(model_path=checkpoint_path_voice,config_path=os.path.join(checkpoint_path_voice,"config.json"))
 os.makedirs(audio_path,exist_ok=True)
 
 class TTS_generation:
@@ -1073,20 +1063,25 @@ class TTS_generation:
     CATEGORY = "DeepFuze"  # Category for the node in the UI
 
     def generate_audio(self, audio, text,device,supported_language):
-        print(text)
+		print(text)
         language = supported_language.split("(")[1][:-1]
-        try:
-            ...
-            # tts.to(device)
-        except Exception as e:print(e)
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
         write(file_path,audio.sample_rate,audio.audio_data)
-        tts.tts_to_file(text=text, speaker_wav=file_path, language=language, file_path=file_path)
+        command = [
+            'python', 'tts_generation.py',
+            '--model', checkpoint_path_voice,
+            '--text', text,
+            '--language', language,
+            '--speaker_wav', file_path,
+            '--output_file', file_path,
+            '--device', device
+        ]
+        result = subprocess.run(command, cwd="custom_nodes/ComfyUI-DeepFuze",capture_output=True, text=True)
+
+        print("stdout:", result.stdout)
+        print("stderr:", result.stderr)
         audio_file = AudioSegment.from_file(file_path, format="wav")
         audio_data = AudioData(audio_file)
-        try:
-            tts.to("cpu")
-        except: pass
         return (audio_data,)
 
 
