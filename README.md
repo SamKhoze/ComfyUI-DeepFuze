@@ -67,7 +67,7 @@ pip install dlib
 pip install TTS 
 ```
 
-If you get an error installing TTS most likely you have different versions of Python, make sure to install the correct version
+If you get an error installing TTS, it most likely you have different versions of Python, make sure to install the correct version
 
 After preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder
 ```
@@ -78,43 +78,49 @@ After preparing the environmental variables navigate into your custom_nodes fold
 if you get any error for any packages, open the requirements.txt file with any text editor remove the version from the front of the package name, and reinstall requirments.txt again
 
 # Models
+
 You can download models directly from [GoogleDrive](https://drive.google.com/drive/folders/1dyu81WAP7_us8-loHjOXZzBJETNeJYJk) and place models into 'PATH' ./ComfyUI/models/deepfuze/
 make sure to download models one by one, if you download the folder GoogleDrive will not download all the models.
 ---
 ## Repository Structures
 
+# ComfyUI-DeepFuze
+
+## Repository Structure
+
+```plaintext
 ComfyUI-DeepFuze/
 ├── __init__.py
 ├── __pycache__/
-│   └── __init__.cpython-311.pyc
-│   └── audio_playback.cpython-311.pyc
-│   └── llm_node.cpython-311.pyc
-│   └── nodes.cpython-311.pyc
+│   ├── __init__.cpython-311.pyc
+│   ├── audio_playback.cpython-311.pyc
+│   ├── llm_node.cpython-311.pyc
+│   ├── nodes.cpython-311.pyc
 │   └── utils.cpython-311.pyc
 ├── audio_playback.py
 ├── deepfuze/
 │   ├── __init__.py
 │   ├── audio.py
-│   └── choices.py
-│   └── common_helper.py
-│   └── config.py
-│   └── content_analyser.py
-│   └── core.py
-│   └── download.py
-│   └── execution.py
-│   └── face_analyser.py
-│   └── face_helper.py
-│   └── face_masker.py
-│   └── face_store.py
-│   └── ffmpeg.py
-│   └── filesystem.py
-│   └── globals.py
-│   └── installer.py
-│   └── logger.py
-│   └── memory.py
-│   └── metadata.py
-│   └── normalizer.py
-│   └── process_manager.py
+│   ├── choices.py
+│   ├── common_helper.py
+│   ├── config.py
+│   ├── content_analyser.py
+│   ├── core.py
+│   ├── download.py
+│   ├── execution.py
+│   ├── face_analyser.py
+│   ├── face_helper.py
+│   ├── face_masker.py
+│   ├── face_store.py
+│   ├── ffmpeg.py
+│   ├── filesystem.py
+│   ├── globals.py
+│   ├── installer.py
+│   ├── logger.py
+│   ├── memory.py
+│   ├── metadata.py
+│   ├── normalizer.py
+│   ├── process_manager.py
 ├── requirements.txt
 ├── images/
 ├── install.py
@@ -148,6 +154,7 @@ ComfyUI-DeepFuze/
 │   └── test_wording.py
 ├── tts_generation.py
 └── utils.py
+```
 
 # Nodes
 
