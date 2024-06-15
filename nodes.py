@@ -32,13 +32,6 @@ from .llm_node import LLM_node
 from .audio_playback import PlayBackAudio
 
 
-# folder_paths.folder_names_and_paths["VHS_video_formats"] = (
-#     [
-#         os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "video_formats"),
-#     ],
-#     [".json"]
-# )
-
 result_dir = os.path.join(folder_paths.get_output_directory(),"deepfuze")
 audio_dir = os.path.join(folder_paths.get_input_directory(),"audio")
 
@@ -619,9 +612,12 @@ class DeepFuzeFaceSwap:
         return {
             "required": {
                 "source_images": ("IMAGE",),
-                "images": ("IMAGE",),
+                "target_images": ("IMAGE",),
                 "enhancer": ("None,codeformer,gfpgan_1.2,gfpgan_1.3,gfpgan_1.4,gpen_bfr_256,gpen_bfr_512,gpen_bfr_1024,gpen_bfr_2048,restoreformer_plus_plus".split(","),{"default":'None'}),
-                "faceswap_model":("blendswap_256,inswapper_128,inswapper_128_fp16,simswap_256,simswap_512_unofficial,uniface_256".split(","),),
+                "faceswap_model":("blendswap_256,inswapper_128,inswapper_128_fp16,simswap_256,simswap_512_unofficial,uniface_256".split(","),{"default":"blendswap_256"}),
+                "frame_enhancer": ("None,clear_reality_x4,lsdir_x4,nomos8k_sc_x4,real_esrgan_x2,real_esrgan_x2_fp16,real_esrgan_x4,real_esrgan_x4_fp16,real_hatgan_x4,span_kendata_x4,ultra_sharp_x4".split(","),{"default":'None'}),
+                "face_detector_model" : ("retinaface,scrfd,yoloface,yunet".split(","),{"default":"yoloface"}),
+                "reference_face_index" : ("INT",{"default":0,"min":0,"max":5,"step":1},{"default":0}),
                 "face_mask_padding_left": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "face_mask_padding_right": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "face_mask_padding_bottom": ("INT",{"default":0,"min":0,"max":30,"step":1}),
@@ -661,9 +657,12 @@ class DeepFuzeFaceSwap:
     def faceswampgenerate(
         self,
         source_images,
-        images,
+        target_images,
         enhancer,
         faceswap_model,
+        frame_enhancer,
+        face_detector_model,
+        reference_face_index,
         face_mask_padding_left,
         face_mask_padding_right,
         face_mask_padding_bottom,
@@ -681,6 +680,7 @@ class DeepFuzeFaceSwap:
         manual_format_widgets=None,
         meta_batch=None
     ):
+        images = target_images
         print(len(source_images),len(images))
 
         if isinstance(images, torch.Tensor) and images.size(0) == 0:
@@ -934,10 +934,14 @@ class DeepFuzeFaceSwap:
             os.path.join(full_output_folder, file),
             '-t',        # Argument: segmentation path
             output_files[-1],
+            '--face-detector-model',
+            face_detector_model,
             '-o',
             faceswap_filename,
             "--face-swapper-model",
             faceswap_model,
+            '--reference-face-position',
+            str(reference_face_index),
             '--face-mask-padding',
 			str(face_mask_padding_top),
 			str(face_mask_padding_bottom),
@@ -945,10 +949,15 @@ class DeepFuzeFaceSwap:
 			str(face_mask_padding_right),
             '--headless'
         ]
+            
+
         if device=="gpu":
             command.extend(['--execution-providers',"coreml"])
         print(command)
         result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+        # audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
+        # subprocess.run(["ffmpeg","-i",faceswap_filename, audio_file, '-y'])
+        # ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
         # print(result.stdout.splitlines()[-1])
         if enhancer!="None":
             command = [
@@ -961,19 +970,38 @@ class DeepFuzeFaceSwap:
                 "-t",
                 faceswap_filename,
                 '-o',
-                enhanced_filename,
+                faceswap_filename,
                 '--headless'
             ]
             if device=="gpu":
                 command.extend(['--execution-providers',"coreml"])
             print(command)
             result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
-            faceswap_filename = enhanced_filename
 
+        if frame_enhancer!="None":
+            command = [
+                'python',
+                './run.py',               # Script to run
+                '--frame-processors',
+                "frame_enhancer",
+                "--frame-enhancer-model",
+                frame_enhancer,
+                "-t",
+                faceswap_filename,
+                '-o',
+                faceswap_filename,
+                '--headless'
+            ]
+            print(command)
+            if device=="gpu":
+                command.extend(['--execution-providers',"coreml"])
+            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+            # temp_file = "/".join(faceswap_filename.split("/")[:-1]) + "_"+faceswap_filename.split("/")[-1]
+            # subprocess.run(["ffmpeg","-i",faceswap_filename,"-i",audio_file,"-c","copy","-map","0:v:0","-map","1:a:0",temp_file,'-y'])
+            # faceswap_filename = temp_file
 
         print(result.stderr)
         return load_video_cv(faceswap_filename,0,'Disabled',512,512,0,0,1)
-
 
 
 
