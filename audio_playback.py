@@ -12,7 +12,7 @@ class PlayBackAudio:
     OUTPUT_NODE = True
     RETURN_NAMES = ()
     RETURN_TYPES = ()
-    CATEGORY = "DeepFuze (Adavance)"
+    CATEGORY = "DeepFuze"
     FUNCTION = "play_audio"
 
     def play_audio(self,audio):
