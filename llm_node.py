@@ -18,7 +18,7 @@ class LLM_node:
             }
         }
 
-    CATEGORY = "LLM"
+    CATEGORY = "DeepFuze"
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("text",)
     FUNCTION = "run_llm"
