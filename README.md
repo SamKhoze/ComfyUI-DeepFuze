@@ -172,6 +172,8 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `images`: Extracted frame images as PyTorch tensors.
 - `audio`: An instance of loaded audio data.
 - `mata_batch`: Load batch numbers via the Meta Batch Manager node.
+- `mask`: Load mask.
+
 
 **Output Types:**
 - `IMAGES`: Extracted frame images as PyTorch tensors.
@@ -180,16 +182,20 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `video_info`: Output video metadata.
 
 **DeepFuze Lipsync Features:**
-- `face_enhancer`: You can add an enhancer to improve the quality of the generated video. Using gfpgan or RestoreFormer to enhance the generated face via face restoration network
-- `frame_enhancer`: You can add an enhance the whole frame of the video
-- `face_mask_padding_left` : padding to left on the face while lipsyncing
-- `face_mask_padding_right` : padding to the right on the face while lipsyncing
-- `face_mask_padding_bottom` : padding to the bottom on the face while lipsyncing
-- `face_mask_padding_top` : padding to the top on the face while lipsyncing
+- `enhancer`: You can add a face enhancer to improve the quality of the generated video. Using gfpgan or RestoreFormer to enhance the generated face via face restoration network
+- `frame_enhancer`: You can add an enhance the whole frame of the video.
+- `face_mask_padding_left` : Padding to left on the face while lipsyncing.
+- `face_mask_padding_right` : Padding to the right on the face while lipsyncing.
+- `face_mask_padding_bottom` : Padding to the bottom on the face while lipsyncing.
+- `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
 - `device` : [cpu,gpu]
-- `trim_frame_start`: remove the number of frames from start
-- `trim_frame_end`: remove the number of frames from end
-- `save_output`: If it is True, it will save the output.
+- `frame_rate`: Set the frame rate.
+- `loop_count`: How many additional times the video should repeat.
+- `filename_prefix`: Prefix naming for the output video.
+- `pingpong`: Causes the input to be played back in reverse to create a clean loop.
+- `save_output`: Saving the output on output folder.
+
+
 
 ![Lipsyncing Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/examples/node.jpeg)
 
