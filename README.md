@@ -44,10 +44,17 @@ Below are the two ComfyUI repositories required to load video and audio. Install
 - Make sure you have `ffmpeg` in the `%PATH%`, following [this](https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/) tutorial to install `ffmpeg` or using scoop.
 
 ----
+# MAC Installation
 
-### For MAC users please set the environment variable before running it
+## For MAC users please set the environment variable before running it
+
+### Install [Pytorch](https://pytorch.org/) 
+
+[Here](https://developer.apple.com/metal/pytorch/) how to install and test your PyTorch
+
 This method has been tested on a M1 and M3 Mac, You must run the below code on your terminal window for Mac Metal Performance Shaders (MPS) Apple's specialized solution for high-performance GPU programming on their devices. Integrating closely with the Metal framework, MPS provides a suite of highly optimized shaders for graphics and computing tasks, which is particularly beneficial in machine learning applications.
 
+## Important Steps (if you miss these steps it will not work)
 ```
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 ```
@@ -55,10 +62,94 @@ export PYTORCH_ENABLE_MPS_FALLBACK=1
 ```
 pip install dlib 
 ```
+### Install Text to Speech for Voice Cloning Node
 ```
 pip install TTS 
 ```
+
+If you get an error installing TTS most likely you have different versions of Python, make sure to install the correct version
+
+After preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder
+```
+    git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
+    cd CompfyUI-DeepFuze
+    pip3 install -r requirements.txt
+```
+if you get any error for any packages, open the requirements.txt file with any text editor remove the version from the front of the package name, and reinstall requirments.txt again
+
+# Models
+You can download models directly from [GoogleDrive](https://drive.google.com/drive/folders/1dyu81WAP7_us8-loHjOXZzBJETNeJYJk) and place models into 'PATH' ./ComfyUI/models/deepfuze/
+make sure to download models one by one, if you download the folder GoogleDrive will not download all the models.
 ---
+## Repository Structures
+
+ComfyUI-DeepFuze/
+├── __init__.py
+├── __pycache__/
+│   └── __init__.cpython-311.pyc
+│   └── audio_playback.cpython-311.pyc
+│   └── llm_node.cpython-311.pyc
+│   └── nodes.cpython-311.pyc
+│   └── utils.cpython-311.pyc
+├── audio_playback.py
+├── deepfuze/
+│   ├── __init__.py
+│   ├── audio.py
+│   └── choices.py
+│   └── common_helper.py
+│   └── config.py
+│   └── content_analyser.py
+│   └── core.py
+│   └── download.py
+│   └── execution.py
+│   └── face_analyser.py
+│   └── face_helper.py
+│   └── face_masker.py
+│   └── face_store.py
+│   └── ffmpeg.py
+│   └── filesystem.py
+│   └── globals.py
+│   └── installer.py
+│   └── logger.py
+│   └── memory.py
+│   └── metadata.py
+│   └── normalizer.py
+│   └── process_manager.py
+├── requirements.txt
+├── images/
+├── install.py
+├── LICENSE.txt
+├── llm_node.py
+├── mypy.ini
+├── nodes.py
+├── README.md
+├── requirements.txt
+├── run.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_audio.py
+│   ├── test_cli_face_debugger.py
+│   ├── test_cli_face_enhancer.py
+│   ├── test_cli_face_swapper.py
+│   ├── test_cli_frame_colorizer.py
+│   ├── test_cli_frame_enhancer.py
+│   ├── test_cli_lip_syncer.py
+│   ├── test_common_helper.py
+│   ├── test_config.py
+│   ├── test_download.py
+│   ├── test_execution.py
+│   ├── test_face_analyser.py
+│   ├── test_ffmpeg.py
+│   ├── test_filesystem.py
+│   ├── test_memory.py
+│   ├── test_normalizer.py
+│   ├── test_process_manager.py
+│   ├── test_vision.py
+│   └── test_wording.py
+├── tts_generation.py
+└── utils.py
+
+# Nodes
 
 ## DeepFuze Lipsync
 
