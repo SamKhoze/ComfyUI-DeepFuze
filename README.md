@@ -202,9 +202,12 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 
 ![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_FaceSwap.jpg)
 
+---
 ## DeepFuze FaceSwap
-![DeepFuze FaceSwap example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/AnimateDiff_00002-ezgif.com-video-to-gif-converter.gif)
+
 ![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_FaceSwap.jpg)
+
+![DeepFuze FaceSwap example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/AnimateDiff_00002-ezgif.com-video-to-gif-converter.gif)
 
 This node generates lipsyncing video from, video, image, and WAV audio files.
 
