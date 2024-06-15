@@ -19,7 +19,7 @@ Below are the two ComfyUI repositories required to load video and audio. Install
 
 Clone the repositories:
 
-    ```bash
+    ```
     cd custom_nodes
     git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
     git clone https://github.com/a1lazydog/ComfyUI-AudioScheduler.git
