@@ -260,7 +260,7 @@ This node is used to clone any voice from typed input. The audio file should be 
 
 **Basic Integration**
 
-![BasicWorkspace](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/imgs/BasicWorkspace.jpg)
+![BasicWorkspace](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Lipsync_VoiceCloning_FaceSwap.jpg)
 
 ---
 
