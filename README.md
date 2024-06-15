@@ -19,11 +19,11 @@ Below are the two ComfyUI repositories required to load video and audio. Install
 
 Clone the repositories:
 
-    ```
+
     cd custom_nodes
     git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
     git clone https://github.com/a1lazydog/ComfyUI-AudioScheduler.git
-    ```
+
 
 # Installation & Models Download 
 
@@ -35,11 +35,10 @@ Clone the repositories:
 
 Clone this repository into the `custom_nodes` folder and install requirements:
 
-    ```
+
     git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
     cd CompfyUI-DeepFuze
     pip3 install -r requirements.txt
-    ```
 
 
 ----
