@@ -45,6 +45,7 @@ Below are the two ComfyUI repositories required to load video and audio. Install
 
 ----
 # MAC Installation
+## Vide Tutorial How To Install on MAC [YOUTUBE LINK](https://youtu.be/FWdOlj60fig)
 
 ## For MAC users please set the environment variable before running it
 
