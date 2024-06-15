@@ -182,7 +182,7 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `video_info`: Output video metadata.
 
 **DeepFuze Lipsync Features:**
-- `enhancer`: You can add a face enhancer to improve the quality of the generated video. Using gfpgan or RestoreFormer to enhance the generated face via face restoration network
+- `enhancer`: You can add a face enhancer to improve the quality of the generated video via face restoration network.
 - `frame_enhancer`: You can add an enhance the whole frame of the video.
 - `face_mask_padding_left` : Padding to left on the face while lipsyncing.
 - `face_mask_padding_right` : Padding to the right on the face while lipsyncing.
@@ -197,7 +197,42 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 
 
 
-![Lipsyncing Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/examples/node.jpeg)
+![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_FaceSwap.jpg)
+
+## DeepFuze FaceSwap
+![DeepFuze FaceSwap example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/AnimateDiff_00002-ezgif.com-video-to-gif-converter.gif)
+![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_FaceSwap.jpg)
+
+This node generates lipsyncing video from, video, image, and WAV audio files.
+
+**Input Types:**
+- `source_images`: Extracted frame image as PyTorch tensors for swapping.
+- `target_images`: Extracted frame images as PyTorch tensors to input the source video/image.
+- `mata_batch`: Load batch numbers via the Meta Batch Manager node.
+- `mask`: Load mask.
+
+
+**Output Types:**
+- `IMAGES`: Extracted frame images as PyTorch tensors.
+- `frame_count`: Output frame counts int.
+- `audio`: Output audio.
+- `video_info`: Output video metadata.
+
+**DeepFuze FaceSwap Features:**
+- `enhancer`: You can add a face enhancer to improve the quality of the generated video via face restoration network.
+- `faceswap_model`: You can select different models for swapping.
+- `frame_enhancer`: You can add an enhance the whole frame of the video.
+- `face_detector_model`: You can select different models for face detection.
+- `face_mask_padding_left` : Padding to left on the face while lipsyncing.
+- `face_mask_padding_right` : Padding to the right on the face while lipsyncing.
+- `face_mask_padding_bottom` : Padding to the bottom on the face while lipsyncing.
+- `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
+- `device` : [cpu,gpu]
+- `frame_rate`: Set the frame rate.
+- `loop_count`: How many additional times the video should repeat.
+- `filename_prefix`: Prefix naming for the output video.
+- `pingpong`: Causes the input to be played back in reverse to create a clean loop.
+- `save_output`: Saving the output on output folder.
 
 ### DeepFuze_TTS
 
