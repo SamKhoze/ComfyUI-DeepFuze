@@ -34,7 +34,8 @@ Clone the repositories:
 - Make sure you have `ffmpeg` in the `%PATH%`, following [this](https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/) tutorial on installing `ffmpeg` or using the scoop.
 
 Clone this repository into the `custom_nodes` folder and install requirements:
-    ```bash
+
+    ```
     git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
     cd CompfyUI-DeepFuze
     pip3 install -r requirements.txt
