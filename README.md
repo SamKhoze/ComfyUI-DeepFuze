@@ -18,6 +18,7 @@ DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates wit
 Below are the two ComfyUI repositories required to load video and audio. Install them into your `custom_nodes` folder:
 
 Clone the repositories:
+
     ```bash
     cd custom_nodes
     git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
