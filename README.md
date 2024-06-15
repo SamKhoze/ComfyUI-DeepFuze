@@ -17,32 +17,32 @@ DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates wit
 
 Below are the two ComfyUI repositories required to load video and audio. Install them into your `custom_nodes` folder:
 
-1. Clone the repositories:
+Clone the repositories:
     ```bash
     cd custom_nodes
     git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
     git clone https://github.com/a1lazydog/ComfyUI-AudioScheduler.git
     ```
 
-### Running the Model and Installation
+# Installation & Models Download 
 
-2. Clone this repository into the `custom_nodes` folder and install requirements:
+----
+
+# Windows Installation
+
+- Make sure you have `ffmpeg` in the `%PATH%`, following [this](https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/) tutorial on installing `ffmpeg` or using the scoop.
+
+Clone this repository into the `custom_nodes` folder and install requirements:
     ```bash
     git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
     cd CompfyUI-DeepFuze
     pip3 install -r requirements.txt
     ```
 
-3. Download models from the links below or download all models at once via [DeepFuze Models](https://drive.google.com/drive/folders/1dyu81WAP7_us8-loHjOXZzBJETNeJYJk?usp=sharing) 
-----
-
-### Windows Native
-
-- Make sure you have `ffmpeg` in the `%PATH%`, following [this](https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/) tutorial to install `ffmpeg` or using scoop.
 
 ----
 # MAC Installation
-## Vide Tutorial How To Install on MAC [YOUTUBE LINK](https://youtu.be/FWdOlj60fig)
+## Video Tutorial How To Install on MAC [YOUTUBE LINK](https://youtu.be/FWdOlj60fig)
 
 ## For MAC users please set the environment variable before running it
 
