@@ -93,10 +93,6 @@ if you get any error for any packages, open the requirements.txt file with any t
 You can download models directly from [GoogleDrive](https://drive.google.com/drive/folders/1dyu81WAP7_us8-loHjOXZzBJETNeJYJk?usp=sharing) and place models into the PATH `./ComfyUI/models/deepfuze/` Ensure to manually download each model one by one and place them, due to the size of the models some of the models won't download if you download the folder preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder.
 
 ---
-## Repository Structures
-
-# ComfyUI-DeepFuze
-
 ## Repository Structure
 
 ```plaintext
