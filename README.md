@@ -167,7 +167,11 @@ ComfyUI-DeepFuze/
 
 # Nodes
 
+---
 ## DeepFuze Lipsync
+
+![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
+![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
 
 This node generates lipsyncing video from, video, image, and WAV audio files.
 
@@ -197,10 +201,6 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `filename_prefix`: Prefix naming for the output video.
 - `pingpong`: Causes the input to be played back in reverse to create a clean loop.
 - `save_output`: Saving the output on output folder.
-
-
-
-![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_FaceSwap.jpg)
 
 ---
 ## DeepFuze FaceSwap
