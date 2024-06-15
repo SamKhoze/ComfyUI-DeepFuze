@@ -19,21 +19,26 @@ class LLM_node:
         }
 
     CATEGORY = "DeepFuze"
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("text",)
+    RETURN_TYPES = ("NEW_STRING",)
+    RETURN_NAMES = ("LLM_RESPONSE",)
     FUNCTION = "run_llm"
 
     def run_llm(self, system_prompt, user_query, model_name,temperature,api_key,max_tokens,timeout):
         client = OpenAI(api_key=api_key)
-        response = client.chat.completions.create(
-            model=model_name,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_query}
-                ],
-                # stop = stop.split(","),
-                temperature=temperature,
-                max_tokens=max_tokens,
-                timeout=timeout
-            )
-        return (text,)
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_query}
+                    ],
+                    # stop = stop.split(","),
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    timeout=timeout
+                ).to_dict()
+            print(response)
+            result = response["choices"][0]["message"]["content"]
+        except Exception as e:
+            raise ValueError(e)
+        return (result,)
