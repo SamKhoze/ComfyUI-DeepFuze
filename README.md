@@ -4,8 +4,8 @@
 
 DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates with [ComfyUI](https://github.com/comfyanonymous/ComfyUI) to revolutionize facial transformations, lipsyncing, video generation, voice cloning, face swapping, and lipsync translation. Leveraging advanced algorithms, DeepFuze enables users to combine audio and video with unparalleled realism, ensuring perfectly synchronized facial movements. This innovative solution is ideal for content creators, animators, developers, and anyone seeking to elevate their video editing projects with sophisticated AI-driven features.
 
-### Watch the Video on [Youtube](https://www.youtube.com/watch?v=9WbvlOK_BlI)
-[![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync.jpg)](https://www.youtube.com/watch?v=9WbvlOK_BlI "DeepFuze Lipsync")
+### Watch the 4k Quality Video on [Youtube](https://www.youtube.com/watch?v=9WbvlOK_BlI)
+[![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/SamLipsyncDemo.gif)](https://www.youtube.com/watch?v=9WbvlOK_BlI "DeepFuze Lipsync")
 ### Watch the Video on [Youtube](https://www.youtube.com/watch?v=1c5TK3zTKr8)
 [![IMAGE ALT TEXT HERE](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_02.jpg)](https://www.youtube.com/watch?v=1c5TK3zTKr8)
 
