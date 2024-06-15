@@ -66,8 +66,19 @@ pip install dlib
 ```
 pip install TTS 
 ```
+### Errors 
 
-If you get an error installing TTS, it most likely you have different versions of Python, make sure to install the correct version
+If you get an error installing TTS, it is most likely because you have different versions of Python, make sure to install the correct version
+
+If you get an error: ImportError: cannot import name 'get_full_repo_name' from 'huggingface_hub'
+Run the below codes on your terminal it will solve the issue
+
+```
+conda install chardet 
+```
+```
+pip install --upgrade transformers==4.39.2 
+```
 
 After preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder
 ```
@@ -79,8 +90,8 @@ if you get any error for any packages, open the requirements.txt file with any t
 
 # Models
 
-You can download models directly from [GoogleDrive](https://drive.google.com/drive/folders/1dyu81WAP7_us8-loHjOXZzBJETNeJYJk) and place models into 'PATH' ./ComfyUI/models/deepfuze/
-make sure to download models one by one, if you download the folder GoogleDrive will not download all the models.
+You can download models directly from [GoogleDrive](https://drive.google.com/drive/folders/1dyu81WAP7_us8-loHjOXZzBJETNeJYJk?usp=sharing) and place models into the PATH `./ComfyUI/models/deepfuze/` Ensure to manually download each model one by one and place them, due to the size of the models some of the models won't download if you download the folder preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder.
+
 ---
 ## Repository Structures
 
