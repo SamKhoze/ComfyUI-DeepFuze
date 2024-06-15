@@ -191,7 +191,7 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `device` : [cpu,gpu]
 - `trim_frame_start`: remove the number of frames from start
 - `trim_frame_end`: remove the number of frames from end
-- `save_outpou`: If it is True, it will save the output.
+- `save_output`: If it is True, it will save the output.
 
 ![Lipsyncing Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/examples/node.jpeg)
 
