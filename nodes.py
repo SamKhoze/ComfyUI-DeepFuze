@@ -1446,14 +1446,18 @@ os.makedirs(audio_path,exist_ok=True)
 
 class TTS_generation:
 
+
     @classmethod
     def INPUT_TYPES(self):
         return {
             "required": {
                 "audio": ("AUDIO",),
+            },
+            "optional": {
+                "llm_response": ("NEW_STRING",),
                 "text": ("STRING",{
                     "multiline": True,
-                    "default": "Uploaded Audio and text should be in same language"
+                    "default": ""
                 }),
                 "device": (["cpu","cuda","mps"],),
                 "supported_language": ("English (en), Spanish (es), French (fr), German (de), Italian (it), Portuguese (pt), Polish (pl), Turkish (tr), Russian (ru), Dutch (nl), Czech (cs), Arabic (ar), Chinese (zh-cn), Japanese (ja), Hungarian (hu), Korean (ko), Hindi (hi)".split(","),),
@@ -1465,8 +1469,13 @@ class TTS_generation:
 
     CATEGORY = "DeepFuze"  # Category for the node in the UI
 
-    def generate_audio(self, audio, text,device,supported_language):
-        print(text)
+    def generate_audio(self, audio,llm_text, text,device,supported_language):
+        
+        if not llm_text and not text:
+            raise ValueError("Please provide LLM_response or enter text")
+        if llm_text:
+            text = llm_text
+        
         language = supported_language.split("(")[1][:-1]
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
         write(file_path,audio.sample_rate,audio.audio_data)
