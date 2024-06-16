@@ -1,6 +1,12 @@
 import os
 import torch
 import argparse
+import sys
+from sys import platform
+
+if platform == "win32"
+	sys.path.append('./')
+
 from TTS.api import TTS
 
 def main():
