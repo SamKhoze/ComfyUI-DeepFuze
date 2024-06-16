@@ -22,7 +22,7 @@ from pydub import AudioSegment
 from .utils import BIGMAX, DIMMAX, calculate_file_hash, get_sorted_dir_files_from_directory, get_audio, lazy_eval, hash_path, validate_path, strip_path
 from PIL import Image, ImageOps
 from comfy.utils import common_upscale, ProgressBar
-
+from sys import platform
 from scipy.io.wavfile import write
 import folder_paths
 from .utils import ffmpeg_path, get_audio, hash_path, validate_path, requeue_workflow, gifski_path, calculate_file_hash, strip_path
@@ -954,7 +954,10 @@ class DeepFuzeFaceSwap:
         if device=="gpu":
             command.extend(['--execution-providers',"coreml"])
         print(command)
-        result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+		if platform == "win32:
+			result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+		else:
+        	result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
         # audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
         # subprocess.run(["ffmpeg","-i",faceswap_filename, audio_file, '-y'])
         # ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
@@ -976,7 +979,10 @@ class DeepFuzeFaceSwap:
             if device=="gpu":
                 command.extend(['--execution-providers',"coreml"])
             print(command)
-            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			if platform == "win32:
+				result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			else:
+	            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
 
         if frame_enhancer!="None":
             command = [
@@ -995,7 +1001,10 @@ class DeepFuzeFaceSwap:
             print(command)
             if device=="gpu":
                 command.extend(['--execution-providers',"coreml"])
-            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			if platform == "win32:
+				result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			else:
+	            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             # temp_file = "/".join(faceswap_filename.split("/")[:-1]) + "_"+faceswap_filename.split("/")[-1]
             # subprocess.run(["ffmpeg","-i",faceswap_filename,"-i",audio_file,"-c","copy","-map","0:v:0","-map","1:a:0",temp_file,'-y'])
             # faceswap_filename = temp_file
@@ -1345,7 +1354,10 @@ class DeepFuzeAdavance:
         if device=="gpu":
             command.extend(['--execution-providers',"coreml"])
         print(command)
-        result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+		if platform == "win32:
+			result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+		else:
+        	result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
         # print(result.stdout.splitlines()[-1])
         if enhancer!="None":
             command = [
@@ -1364,7 +1376,10 @@ class DeepFuzeAdavance:
             if device=="gpu":
                 command.extend(['--execution-providers',"coreml"])
             print(command)
-            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			if platform == "win32:
+				result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			else:
+	            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             filename = enhanced_filename
 
         if frame_enhancer!="None":
@@ -1384,7 +1399,10 @@ class DeepFuzeAdavance:
             print(command)
             if device=="gpu":
                 command.extend(['--execution-providers',"coreml"])
-            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			if platform == "win32:
+				result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			else:
+	            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             temp_file = "/".join(enhanced_filename.split("/")[:-1]) + "_"+enhanced_filename.split("/")[-1]
             subprocess.run(["ffmpeg","-i",enhanced_filename,"-i",audio_file,"-c","copy","-map","0:v:0","-map","1:a:0",temp_file,'-y'])
             filename = temp_file
@@ -1488,7 +1506,10 @@ class TTS_generation:
             '--output_file', file_path,
             '--device', device
         ]
-        result = subprocess.run(command, cwd="custom_nodes/ComfyUI-DeepFuze",capture_output=True, text=True)
+		if platform == "win32:
+			result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+		else:
+        	result = subprocess.run(command, cwd="custom_nodes/ComfyUI-DeepFuze",capture_output=True, text=True)
 
         print("stdout:", result.stdout)
         print("stderr:", result.stderr)
@@ -1553,8 +1574,10 @@ class DeepfuzePreview:
                 '--headless'
             ]
             print(command)
-            # result = subprocess.Popen(" ".join(command),cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
-            result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+            if platform == "win32:
+				result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+			else:
+				result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             print(result.stdout)
             results.append({
                 "filename": "_"+file,
