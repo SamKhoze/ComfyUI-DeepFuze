@@ -1469,12 +1469,12 @@ class TTS_generation:
 
     CATEGORY = "DeepFuze"  # Category for the node in the UI
 
-    def generate_audio(self, audio,llm_text, text,device,supported_language):
+    def generate_audio(self, audio,llm_response, text,device,supported_language):
         
-        if not llm_text and not text:
+        if not llm_response and not text:
             raise ValueError("Please provide LLM_response or enter text")
         if llm_text:
-            text = llm_text
+            text = llm_response
         
         language = supported_language.split("(")[1][:-1]
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
