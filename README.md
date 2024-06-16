@@ -34,15 +34,18 @@ Clone the repositories:
 
 # Windows Installation
 
-- Make sure you have `ffmpeg` in the `%PATH%`, following [this](https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/) tutorial on installing `ffmpeg` or using the scoop.
+## Portable ComfyUI for Windows
 
-Clone this repository into the `custom_nodes` folder and install requirements:
+### Step 1
+You must install [Visual Studio](https://visualstudio.microsoft.com/downloads/), it works with the community version
+OR VS [C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and select "Desktop Development with C++" under "Workloads -> Desktop & Mobile"
+### Step 2
+Install from the ComfyUI manager, select Install via git URL, and copy past:
 
+    https://github.com/SamKhoze/CompfyUI-DeepFuze.git
+### Step 3
 
-    git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
-    cd CompfyUI-DeepFuze
-    pip3 install -r requirements.txt
-
+Restart your ComfyuUI
 
 ----
 # MAC Installation
@@ -179,7 +182,6 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `images`: Extracted frame images as PyTorch tensors.
 - `audio`: An instance of loaded audio data.
 - `mata_batch`: Load batch numbers via the Meta Batch Manager node.
-- `mask`: Load mask.
 
 
 **Output Types:**
@@ -189,12 +191,12 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `video_info`: Output video metadata.
 
 **DeepFuze Lipsync Features:**
-- `enhancer`: You can add a face enhancer to improve the quality of the generated video via face restoration network.
+- `enhancer`: You can add a face enhancer to improve the quality of the generated video via the face restoration network.
 - `frame_enhancer`: You can add an enhance the whole frame of the video.
-- `face_mask_padding_left` : Padding to left on the face while lipsyncing.
-- `face_mask_padding_right` : Padding to the right on the face while lipsyncing.
-- `face_mask_padding_bottom` : Padding to the bottom on the face while lipsyncing.
-- `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
+- `face_mask_padding_left` : Padding to left of the face while lipsyncing.
+- `face_mask_padding_right` : Padding to the right of the face while lipsyncing.
+- `face_mask_padding_bottom` : Padding to the bottom of the face while lipsyncing.
+- `face_mask_padding_top` : Padding to the top of the face while lipsyncing.
 - `device` : [cpu,gpu]
 - `frame_rate`: Set the frame rate.
 - `loop_count`: How many additional times the video should repeat.
@@ -215,7 +217,6 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `source_images`: Extracted frame image as PyTorch tensors for swapping.
 - `target_images`: Extracted frame images as PyTorch tensors to input the source video/image.
 - `mata_batch`: Load batch numbers via the Meta Batch Manager node.
-- `mask`: Load mask.
 
 
 **Output Types:**
