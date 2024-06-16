@@ -621,7 +621,7 @@ class DeepFuzeFaceSwap:
                 "face_mask_padding_right": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "face_mask_padding_bottom": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "face_mask_padding_top": ("INT",{"default":0,"min":0,"max":30,"step":1}),
-                "device" : (["cpu","gpu"],{"default":"cpu"}),
+                "device" : (["cpu","cuda","mps"],{"default":"cpu"}),
                 "frame_rate": (
                     "FLOAT",
                     {"default": 25, "min": 1, "step": 1},
@@ -950,7 +950,9 @@ class DeepFuzeFaceSwap:
         ]
             
 
-        if device=="gpu":
+        if device=="cuda":
+            command.extend(['--execution-providers',"cuda"])
+        elif device=="mps":
             command.extend(['--execution-providers',"coreml"])
         print(command)
         if platform == "win32":
@@ -975,7 +977,9 @@ class DeepFuzeFaceSwap:
                 faceswap_filename,
                 '--headless'
             ]
-            if device=="gpu":
+            if device=="cuda":
+                command.extend(['--execution-providers',"cuda"])
+            elif device=="mps":
                 command.extend(['--execution-providers',"coreml"])
             print(command)
             if platform == "win32":
@@ -998,7 +1002,9 @@ class DeepFuzeFaceSwap:
                 '--headless'
             ]
             print(command)
-            if device=="gpu":
+            if device=="cuda":
+                command.extend(['--execution-providers',"cuda"])
+            elif device=="mps":
                 command.extend(['--execution-providers',"coreml"])
             if platform == "win32":
                 result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
@@ -1031,7 +1037,7 @@ class DeepFuzeAdavance:
                 "face_mask_padding_top": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "trim_frame_start": ("INT",{"default":0,"max":2000},),
                 "trim_frame_end": ("INT",{"default":0,"max":2000},),
-                "device" : (["cpu","gpu"],{"default":"cpu"}),
+                "device" : (["cpu","cuda","mps"],{"default":"cpu"}),
                 "frame_rate": (
                     "FLOAT",
                     {"default": 25, "min": 1, "step": 1},
@@ -1350,7 +1356,9 @@ class DeepFuzeAdavance:
 			str(face_mask_padding_right),
             '--headless'
         ]
-        if device=="gpu":
+        if device=="cuda":
+            command.extend(['--execution-providers',"cuda"])
+        elif device=="mps":
             command.extend(['--execution-providers',"coreml"])
         print(command)
         if platform == "win32":
@@ -1372,7 +1380,9 @@ class DeepFuzeAdavance:
                 enhanced_filename,
                 '--headless'
             ]
-            if device=="gpu":
+            if device=="cuda":
+                command.extend(['--execution-providers',"cuda"])
+            elif device=="mps":
                 command.extend(['--execution-providers',"coreml"])
             print(command)
             if platform == "win32":
@@ -1396,7 +1406,9 @@ class DeepFuzeAdavance:
                 '--headless'
             ]
             print(command)
-            if device=="gpu":
+            if device=="cuda":
+                command.extend(['--execution-providers',"cuda"])
+            elif device=="mps":
                 command.extend(['--execution-providers',"coreml"])
             if platform == "win32":
                 result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
