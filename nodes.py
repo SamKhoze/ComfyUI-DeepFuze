@@ -1473,7 +1473,7 @@ class TTS_generation:
         
         if not llm_response and not text:
             raise ValueError("Please provide LLM_response or enter text")
-        if llm_text:
+        if llm_response:
             text = llm_response
         
         language = supported_language.split("(")[1][:-1]
