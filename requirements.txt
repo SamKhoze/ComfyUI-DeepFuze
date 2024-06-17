@@ -11,3 +11,7 @@ openai
 sounddevice
 pydub
 TTS
+torchsde
+imageio_ffmpeg
+kornia
+spandrel
