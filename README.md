@@ -106,7 +106,7 @@ You can download models directly from [GoogleDrive](https://drive.google.com/dri
 ## OpenAI API setup for voice cloning (Optional)
 ---
 
-You need an OpenAI API Key if you wish to use the "Openai LLM" node for generating dialogues for voice cloning
+You need an OpenAI API Key if you wish to use the "DeepFuze Openai LLM" node for generating dialogues for voice cloning
 ---
 To use the "Openai LLM" node for voice cloning dialogues, you need an OpenAI API Key. You can get this key and set it up by following the instructions in the [OpenAI Developer quickstart guide](https://platform.openai.com/docs/quickstart). Please note that the "Openai LLM" node does not save your API key. Every time you close the node, you will need to manually copy and paste your API key. You can also add the API key as an Environment Variable using the following commands: For Windows: `setx OPENAI_API_KEY "your-api-key-here"`, and for Mac: `export OPENAI_API_KEY='your-api-key-here'`. The next time you need to copy and paste your API key into the LLM Node, you can type the following command in your terminal: `echo $OPENAI_API_KEY`, and it will print your API Key, allowing you to copy and paste it into your Openai LLM node.
 
@@ -267,8 +267,26 @@ This node is used to clone any voice from typed input. The audio file should be 
 **Output Types:**
 - `audio`: An instance of loaded audio data.
 
-![TTS Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/imgs/DeepFuze_TTS.jpg)
+### DeepFuze Openai LLM
 
+This node is used to integrate LLM into the voice cloning node. You can type your dialogue and set up parameters; the AI-generated texts will be used for voice cloning.
+
+**Input Types:**
+- `user_query`: Type your dialogues.
+
+**Output Types:**
+- `LLM_RESPONSE`: Outputs AI Generated texts.
+
+**DeepFuze Openai LLM Features:**
+- `model_name`: You can select from the available openai models.
+- `api_key`: Add your API Key. (Your API Key will not be saved, each time you use this node you must manually enter it.
+- `max_tokens`: is a parameter that limits the number of tokens in a model's response in OpenAI GPT APIs. It's used in requests made through GPT for Sheets and Docs, and in the ChatOpenAI() class. The default value for max_tokens is 4096 tokens, which is roughly equivalent to 3,000 words.
+- `temperature`: controls the level of randomness and creativity in its responses. It's a hyper-parameter in Large Language Models (LLMs) that balances creativity and coherence in generated text. The temperature setting is always a number between 0 and 1, with the default being 0.7:
+0: Produces very straightforward, almost deterministic responses
+1: Results in wildly varying responses
+0.7: The default temperature for ChatGPT.
+- `timeout` : set up time if request takes too long to complete and the server closes the connection.
+  
 
 **Basic Integrations**
 
