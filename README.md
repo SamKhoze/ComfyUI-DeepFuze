@@ -71,10 +71,22 @@ pip install dlib
 ```
 pip install TTS 
 ```
+
+# Install ComfyUI-DeepFuze
+
+After preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder
+```
+
+cd custom_nodes
+git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
+cd CompfyUI-DeepFuze
+pip install -r requirements.txt
+```   
+
 ### Errors 
 
 If you get an error installing TTS, it is most likely because you have different versions of Python, make sure to install the correct version
-
+----
 If you get an error: ImportError: cannot import name 'get_full_repo_name' from 'huggingface_hub'
 Run the below codes on your terminal it will solve the issue
 
@@ -85,19 +97,21 @@ conda install chardet
 pip install --upgrade transformers==4.39.2 
 ```
 
-After preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder
-```
-    git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
-    cd CompfyUI-DeepFuze
-    pip3 install -r requirements.txt
-```
 if you get any error for any packages, open the requirements.txt file with any text editor remove the version from the front of the package name, and reinstall requirments.txt again
 
 # Models
 
 You can download models directly from [GoogleDrive](https://drive.google.com/drive/folders/1dyu81WAP7_us8-loHjOXZzBJETNeJYJk?usp=sharing) and place models into the PATH `./ComfyUI/models/deepfuze/` Ensure to manually download each model one by one and place them, due to the size of the models some of the models won't download if you download the folder preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder.
 
+## OpenAI API setup for voice cloning (Optional)
 ---
+
+You need an OpenAI API Key if you wish to use the "Openai LLM" node for generating dialogues for voice cloning
+---
+### Prerequisites for Voice Cloning and Lipsyncing
+
+To use the "Openai LLM" node for voice cloning dialogues, you need an OpenAI API Key. You can get this key and set it up by following the instructions in the [OpenAI Developer quickstart guide](https://platform.openai.com/docs/quickstart). Please note that the "Openai LLM" node does not save your API key. Every time you close the node, you will need to manually copy and paste your API key. You can also add the API key as an Environment Variable using the following commands: For Windows: `setx OPENAI_API_KEY "your-api-key-here"`, and for Mac: `export OPENAI_API_KEY='your-api-key-here'`. The next time you need to copy and paste your API key into the LLM Node, you can type the following command in your terminal: `echo $OPENAI_API_KEY`, and it will print your API Key, allowing you to copy and paste it into your Openai LLM node.
+
 ## Repository Structure
 
 ```plaintext
