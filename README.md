@@ -270,8 +270,12 @@ This node is used to clone any voice from typed input. The audio file should be 
 ![TTS Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/imgs/DeepFuze_TTS.jpg)
 
 
-**Basic Integration**
+**Basic Integrations**
 
+Voice Cloning + Lipsync Generation
+![BasicWorkspace](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/VoiceCloning.jpg)
+
+Voice Cloning + Lipsync Generation + FaceSwap
 ![BasicWorkspace](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Lipsync_VoiceCloning_FaceSwap.jpg)
 
 ---
