@@ -6,11 +6,11 @@ DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates wit
 
 ### Watch the 4k Quality Video on [Youtube](https://www.youtube.com/watch?v=9WbvlOK_BlI)
 
-[![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/SamLipsyncDemo.gif)
+![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/SamLipsyncDemo.gif)
 ---
 ### Watch the 4k Quality Video on [Youtube](https://www.youtube.com/watch?v=1c5TK3zTKr8)
 
-[![IMAGE ALT TEXT HERE](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Lipsync_Demo02.gif)
+![IMAGE ALT TEXT HERE](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Lipsync_Demo02.gif)
 
 ---
 
@@ -260,6 +260,7 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 
 This node is used to clone any voice from typed input. The audio file should be 10-15 seconds long for better results and should not have much noise. 
 
+![DeepFuze TTS_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_TTS_Node.jpg)
 **Input Types:**
 - `audio`: An instance of loaded audio data.
 - `text`: Text to generate the cloned voice audio.
