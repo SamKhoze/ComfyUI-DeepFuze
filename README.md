@@ -32,7 +32,7 @@ Clone the repositories:
 
 ----
 
-# Windows Installation
+# Windows Installation 🖥️
 
 ## Portable ComfyUI for Windows
 
@@ -48,7 +48,7 @@ Install from the ComfyUI manager, select Install via git URL, and copy past:
 Restart your ComfyuUI
 
 ----
-# MAC Installation
+# MAC Installation 👨🏻‍💻
 ## Video Tutorial How To Install on MAC [YOUTUBE LINK](https://youtu.be/FWdOlj60fig)
 
 ## For MAC users please set the environment variable before running it
