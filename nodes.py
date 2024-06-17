@@ -1614,7 +1614,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "DeepFuzeAdavance": "DeepFuze Lipsync",
 	"DeepFuzeFaceSwap": "DeepFuze FaceSwap",
     "TTS_generation":"DeepFuze TTS",
-    "LLM_node": "Openai LLM",
+    "LLM_node": "DeepFuze Openai LLM",
     "PlayBackAudio": "Play Audio",
 	"DeepfuzePreview": "DeepFuze Padding Preview"
 }
