@@ -305,6 +305,7 @@ This node is used to integrate LLM into the voice cloning node. You can type you
 - `face_mask_padding_bottom` : Padding to the bottom on the face while lipsyncing.
 - `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
 
+----
 ### Basic Integrations
 
 Voice Cloning + Lipsync Generation
