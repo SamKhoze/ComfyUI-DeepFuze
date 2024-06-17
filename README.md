@@ -1,3 +1,4 @@
+# ⚠️⚠️⚠️This repository is a work in Progress, Currently working on MAC & Windows with CPU enabled. We are releasing the CUDA enabled for Windows no later than June 25th, Also audio playback node for voice cloning is under development in a day or two will be available. 
 # DeepFuze 
 
 ## Overview
