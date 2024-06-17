@@ -252,6 +252,7 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `pingpong`: Causes the input to be played back in reverse to create a clean loop.
 - `save_output`: Saving the output on output folder.
 
+----
 ### DeepFuze_TTS Node (Voice Cloning) 🎙️
 
 **Languages:**
@@ -268,6 +269,7 @@ This node is used to clone any voice from typed input. The audio file should be 
 **Output Types:**
 - `audio`: An instance of loaded audio data.
 
+----
 ### DeepFuze Openai LLM Node 🤖
 
 ![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM_Node.jpg)
@@ -279,6 +281,7 @@ This node is used to integrate LLM into the voice cloning node. You can type you
 **Output Types:**
 - `LLM_RESPONSE`: Outputs AI Generated texts.
 
+----
 **DeepFuze Openai LLM Features:**
 - `model_name`: You can select from the available openai models.
 - `api_key`: Add your API Key. (Your API Key will not be saved, each time you use this node you must manually enter it.
@@ -288,7 +291,8 @@ This node is used to integrate LLM into the voice cloning node. You can type you
 1: Results in wildly varying responses
 0.7: The default temperature for ChatGPT.
 - `timeout` : set up time if request takes too long to complete and the server closes the connection.
-  
+
+----
 ### DeepFuze Padding Node 👺
 
 ![DeepFuze Padding_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Padding_Node.jpg)
@@ -302,12 +306,14 @@ This node is used to integrate LLM into the voice cloning node. You can type you
 - `face_mask_padding_bottom` : Padding to the bottom on the face while lipsyncing.
 - `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
 
-**Basic Integrations**
+### Basic Integrations
 
 Voice Cloning + Lipsync Generation
+
 ![BasicWorkspace](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/VoiceCloning.jpg)
 
 Voice Cloning + Lipsync Generation + FaceSwap
+
 ![BasicWorkspace](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Lipsync_VoiceCloning_FaceSwap.jpg)
 
 ---
@@ -334,6 +340,7 @@ output_path = deepfuze.generate(output='path/to/output.mp4')
 print(f"Lipsynced video saved at {output_path}")
 ```
 
+----
 # Acknowledgements
 
 This repository could not have been completed without the contributions from [FaceFusion](https://github.com/facefusion/facefusion), [InsightFace](https://github.com/deepinsight/insightface),[SadTalker](https://github.com/OpenTalker/SadTalker/tree/main), [Facexlib](https://github.com/xinntao/facexlib), [GFPGAN](https://github.com/TencentARC/GFPGAN), [GPEN](https://github.com/yangxy/GPEN), [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN), [TTS](https://github.com/coqui-ai/TTS/tree/dev), [SSD](https://pytorch.org/hub/nvidia_deeplearningexamples_ssd/), and [wav2lip](https://github.com/Rudrabha/Wav2Lip), 
