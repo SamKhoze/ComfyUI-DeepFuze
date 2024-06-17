@@ -281,7 +281,6 @@ This node is used to integrate LLM into the voice cloning node. You can type you
 **Output Types:**
 - `LLM_RESPONSE`: Outputs AI Generated texts.
 
-----
 **DeepFuze Openai LLM Features:**
 - `model_name`: You can select from the available openai models.
 - `api_key`: Add your API Key. (Your API Key will not be saved, each time you use this node you must manually enter it.
