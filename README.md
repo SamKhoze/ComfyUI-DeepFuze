@@ -14,20 +14,6 @@ DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates wit
 
 ---
 
-## Installation
-
-### Prerequisites for Voice Cloning and Lipsyncing
-
-Below are the two ComfyUI repositories required to load video and audio. Install them into your `custom_nodes` folder:
-
-Clone the repositories:
-
-
-    cd custom_nodes
-    git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
-    git clone https://github.com/a1lazydog/ComfyUI-AudioScheduler.git
-
-
 # Installation & Models Download 
 
 ----
@@ -82,6 +68,18 @@ git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
 cd CompfyUI-DeepFuze
 pip install -r requirements.txt
 ```   
+
+### Prerequisites for Voice Cloning and Lipsyncing
+
+Below are the two ComfyUI repositories required to load video and audio. Install them into your `custom_nodes` folder:
+
+Clone the repositories:
+
+
+    cd custom_nodes
+    git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
+    git clone https://github.com/a1lazydog/ComfyUI-AudioScheduler.git
+
 
 ### Errors 
 
