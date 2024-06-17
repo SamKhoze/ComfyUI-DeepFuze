@@ -181,9 +181,10 @@ ComfyUI-DeepFuze/
 # Nodes
 
 ---
-## DeepFuze Lipsync
+## DeepFuze Lipsync Node 🫦
 
-![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
+![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_Node.jpg)
+![DeepFuze Lipsync Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
 
 This node generates lipsyncing video from, video, image, and WAV audio files.
 
@@ -214,8 +215,9 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `save_output`: Saving the output on output folder.
 
 ---
-## DeepFuze FaceSwap
+## DeepFuze FaceSwap Node 🎭
 
+![DeepFuze FaceSwap Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_FaceSwap_Node.jpg)
 ![DeepFuze FaceSwap Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_FaceSwap.jpg)
 
 ![DeepFuze FaceSwap example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/AnimateDiff_00002-ezgif.com-video-to-gif-converter.gif)
@@ -250,7 +252,7 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 - `pingpong`: Causes the input to be played back in reverse to create a clean loop.
 - `save_output`: Saving the output on output folder.
 
-### DeepFuze_TTS
+### DeepFuze_TTS Node (Voice Cloning) 🎙️
 
 **Languages:**
 
@@ -265,8 +267,9 @@ This node is used to clone any voice from typed input. The audio file should be 
 **Output Types:**
 - `audio`: An instance of loaded audio data.
 
-### DeepFuze Openai LLM
+### DeepFuze Openai LLM Node 🤖
 
+![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM_Node.jpg)
 This node is used to integrate LLM into the voice cloning node. You can type your dialogue and set up parameters; the AI-generated texts will be used for voice cloning.
 
 **Input Types:**
@@ -285,6 +288,18 @@ This node is used to integrate LLM into the voice cloning node. You can type you
 0.7: The default temperature for ChatGPT.
 - `timeout` : set up time if request takes too long to complete and the server closes the connection.
   
+### DeepFuze Padding Node 👺
+
+![DeepFuze Padding_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Padding_Node.jpg)
+
+**Input Types:**
+- `image`: Provides a preview of the padding for the face mask.
+
+**DeepFuze Padding Features:**
+- `face_mask_padding_left` : Padding to left on the face while lipsyncing.
+- `face_mask_padding_right` : Padding to the right on the face while lipsyncing.
+- `face_mask_padding_bottom` : Padding to the bottom on the face while lipsyncing.
+- `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
 
 **Basic Integrations**
 
