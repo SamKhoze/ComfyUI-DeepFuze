@@ -59,7 +59,7 @@ Restart your ComfyuUI
 
 This method has been tested on a M1 and M3 Mac, You must run the below code on your terminal window for Mac Metal Performance Shaders (MPS) Apple's specialized solution for high-performance GPU programming on their devices. Integrating closely with the Metal framework, MPS provides a suite of highly optimized shaders for graphics and computing tasks, which is particularly beneficial in machine learning applications.
 
-## Important Steps (if you miss these steps it will not work)
+## ⚠️⚠️⚠️ Important Steps (if you miss these steps it will not work)
 ```
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 ```
