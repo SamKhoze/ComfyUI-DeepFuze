@@ -26,8 +26,14 @@ DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates wit
 ### Step 1
 You must install [Visual Studio](https://visualstudio.microsoft.com/downloads/), it works with the community version
 OR VS [C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and select "Desktop Development with C++" under "Workloads -> Desktop & Mobile"
-### Step 2
-Install from the ComfyUI manager, select Install via git URL, and copy past:
+
+### Step 2 (installing from ComfyUI-Manager)
+From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for DeepFuze, and install the node. Restart your ComfyUI, and look at your terminal window, if the TTS (Text To Speech Library) is not installed you have to install it manually. 
+
+![PipInstall TTS](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/PipInstall_TTS.jpg)
+### Alternative Installation Methode 
+![GitInstall](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Git%20Install.jpg)
+Install from the ComfyUI manager, select "Install Via  GIT URL", and copy past:
 
     https://github.com/SamKhoze/CompfyUI-DeepFuze.git
 ### Step 3
