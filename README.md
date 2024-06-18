@@ -190,7 +190,7 @@ ComfyUI-DeepFuze/
 ![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_Node.jpg)
 ![DeepFuze Lipsync Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
 
-This node generates lipsyncing video from, video, image, and WAV audio files.
+This node generates lipsyncing video from, video, image, and audio files.
 
 **Input Types:**
 - `images`: Extracted frame images as PyTorch tensors.
