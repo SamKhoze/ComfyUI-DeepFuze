@@ -274,7 +274,9 @@ This node is used to clone any voice from typed input. The audio file should be 
 ### DeepFuze Openai LLM Node 🤖
 
 ![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM_Node.jpg)
-This node is used to integrate LLM into the voice cloning node. You can type your dialogue and set up parameters; the AI-generated texts will be used for voice cloning.
+![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM.jpg)
+
+The "LLM Integration" node is used to incorporate LLM (Language Model) into the voice cloning process. You can input your dialogue and configure parameters, and the AI-generated texts will be employed for voice cloning. Furthermore, you can utilize this node in place of ChatGPT to produce text from LLM or to ask any questions in the same manner as you would with ChatGPT. You can view the output of the DeepFuze_LLM by connecting the LLM_RESPONSE to "Display Any" node from [rgthree-comfy](https://github.com/rgthree/rgthree-comfy)
 
 **Input Types:**
 - `user_query`: Type your dialogues.
