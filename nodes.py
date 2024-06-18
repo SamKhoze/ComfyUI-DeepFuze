@@ -29,7 +29,7 @@ from comfy.utils import ProgressBar
 from .utils import BIGMAX, DIMMAX, calculate_file_hash, get_sorted_dir_files_from_directory, get_audio, lazy_eval, hash_path, validate_path, strip_path
 from .llm_node import LLM_node
 from .audio_playback import PlayBackAudio
-
+from .audio_playback import SaveAudio
 
 result_dir = os.path.join(folder_paths.get_output_directory(),"deepfuze")
 audio_dir = os.path.join(folder_paths.get_input_directory(),"audio")
@@ -1608,6 +1608,7 @@ NODE_CLASS_MAPPINGS = {
     "TTS_generation":TTS_generation,
     "LLM_node": LLM_node,
     "PlayBackAudio": PlayBackAudio,
+	"SaveVideo [n-suite]":SaveAudio,
 	"DeepfuzePreview":DeepfuzePreview
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -1616,5 +1617,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TTS_generation":"DeepFuze TTS",
     "LLM_node": "DeepFuze Openai LLM",
     "PlayBackAudio": "Play Audio",
+	"SaveVideo [n-suite]":"DeepFuze Save Audio",
 	"DeepfuzePreview": "DeepFuze Padding Preview"
 }
