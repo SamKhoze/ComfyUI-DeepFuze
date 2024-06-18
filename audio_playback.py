@@ -13,9 +13,12 @@ audio_path = os.path.join(folder_paths.get_input_directory(),"audio")
 
 
 
+output_dir = os.path.join(folder_paths.get_output_directory(),"n-suite")
 YELLOW = '\33[33m'
 END = '\33[0m'
 
+os.makedirs(output_dir,exist_ok=True)
+os.makedirs(os.path.join(output_dir,"videos"),exist_ok=True)
 
 class SaveAudio:
     def __init__(self):
@@ -67,7 +70,7 @@ class SaveAudio:
             file_path = outfile
         file_path_ = file_path.replace(".wav",".mp4")
         print(file_path)
-        file_path_ = f"/Users/yash/Desktop/ComfyUI/output/n-suite/videos/{file_path_.split('/')[-1]}"
+        file_path_ = os.path.join(output_dir,"videos",file_path_.split('/')[-1])
         os.system(f"ffmpeg -i {file_path} {file_path_}")
         return {"ui": {"text": [file_path_.split("/")[-1]],}}
 
