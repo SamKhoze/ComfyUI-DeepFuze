@@ -1,5 +1,6 @@
 # 👉🏼👉🏼👉🏼Please take note of the following information: This repository is compatible with MAC and Windows with CPU support at this moment. We plan to release the enabled CUDA version for Windows by June 25th. If you are testing it on your Windows machine, please ensure that the device on the nodes is set to CPU.
 # DeepFuze 
+### Watch the 4k Quality Video on [YOUTUBE](https://youtu.be/PTXMNz2xyVY)
 ![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/LipsyncDemo.gif)
 
 ## Overview
