@@ -1483,7 +1483,7 @@ class TTS_generation:
                 "audio": ("AUDIO",),
             },
             "optional": {
-                "llm_response": ("NEW_STRING",),
+                "llm_response": ("NEW_STRING",{"default":""}),
                 "text": ("STRING",{
                     "multiline": True,
                     "default": ""
@@ -1498,7 +1498,7 @@ class TTS_generation:
 
     CATEGORY = "DeepFuze"  # Category for the node in the UI
 
-    def generate_audio(self, audio,llm_response, text,device,supported_language):
+    def generate_audio(self, audio, text,device,supported_language,llm_response=""):
         
         if not llm_response and not text:
             raise ValueError("Please provide LLM_response or enter text")
