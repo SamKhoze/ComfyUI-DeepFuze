@@ -112,76 +112,6 @@ You need an OpenAI API Key if you wish to use the "DeepFuze Openai LLM" node for
 ---
 To use the "Openai LLM" node for voice cloning dialogues, you need an OpenAI API Key. You can get this key and set it up by following the instructions in the [OpenAI Developer quickstart guide](https://platform.openai.com/docs/quickstart). Please note that the "Openai LLM" node does not save your API key. Every time you close the node, you will need to manually copy and paste your API key. You can also add the API key as an Environment Variable using the following commands: For Windows: `setx OPENAI_API_KEY "your-api-key-here"`, and for Mac: `export OPENAI_API_KEY='your-api-key-here'`. The next time you need to copy and paste your API key into the LLM Node, you can type the following command in your terminal: `echo $OPENAI_API_KEY`, and it will print your API Key, allowing you to copy and paste it into your Openai LLM node.
 
-## Repository Structure
-
-```plaintext
-ComfyUI-DeepFuze/
-├── __init__.py
-├── __pycache__/
-│   ├── __init__.cpython-311.pyc
-│   ├── audio_playback.cpython-311.pyc
-│   ├── llm_node.cpython-311.pyc
-│   ├── nodes.cpython-311.pyc
-│   └── utils.cpython-311.pyc
-├── audio_playback.py
-├── deepfuze/
-│   ├── __init__.py
-│   ├── audio.py
-│   ├── choices.py
-│   ├── common_helper.py
-│   ├── config.py
-│   ├── content_analyser.py
-│   ├── core.py
-│   ├── download.py
-│   ├── execution.py
-│   ├── face_analyser.py
-│   ├── face_helper.py
-│   ├── face_masker.py
-│   ├── face_store.py
-│   ├── ffmpeg.py
-│   ├── filesystem.py
-│   ├── globals.py
-│   ├── installer.py
-│   ├── logger.py
-│   ├── memory.py
-│   ├── metadata.py
-│   ├── normalizer.py
-│   ├── process_manager.py
-├── requirements.txt
-├── images/
-├── install.py
-├── LICENSE.txt
-├── llm_node.py
-├── mypy.ini
-├── nodes.py
-├── README.md
-├── requirements.txt
-├── run.py
-├── tests/
-│   ├── __init__.py
-│   ├── test_audio.py
-│   ├── test_cli_face_debugger.py
-│   ├── test_cli_face_enhancer.py
-│   ├── test_cli_face_swapper.py
-│   ├── test_cli_frame_colorizer.py
-│   ├── test_cli_frame_enhancer.py
-│   ├── test_cli_lip_syncer.py
-│   ├── test_common_helper.py
-│   ├── test_config.py
-│   ├── test_download.py
-│   ├── test_execution.py
-│   ├── test_face_analyser.py
-│   ├── test_ffmpeg.py
-│   ├── test_filesystem.py
-│   ├── test_memory.py
-│   ├── test_normalizer.py
-│   ├── test_process_manager.py
-│   ├── test_vision.py
-│   └── test_wording.py
-├── tts_generation.py
-└── utils.py
-```
-
 # Nodes
 
 ---
@@ -324,6 +254,78 @@ Voice Cloning + Lipsync Generation + FaceSwap
 ![BasicWorkspace](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Lipsync_VoiceCloning_FaceSwap.jpg)
 
 ---
+### Repository Structure
+
+<sub>
+
+```plaintext
+ComfyUI-DeepFuze/
+├── __init__.py
+├── __pycache__/
+│   ├── __init__.cpython-311.pyc
+│   ├── audio_playback.cpython-311.pyc
+│   ├── llm_node.cpython-311.pyc
+│   ├── nodes.cpython-311.pyc
+│   └── utils.cpython-311.pyc
+├── audio_playback.py
+├── deepfuze/
+│   ├── __init__.py
+│   ├── audio.py
+│   ├── choices.py
+│   ├── common_helper.py
+│   ├── config.py
+│   ├── content_analyser.py
+│   ├── core.py
+│   ├── download.py
+│   ├── execution.py
+│   ├── face_analyser.py
+│   ├── face_helper.py
+│   ├── face_masker.py
+│   ├── face_store.py
+│   ├── ffmpeg.py
+│   ├── filesystem.py
+│   ├── globals.py
+│   ├── installer.py
+│   ├── logger.py
+│   ├── memory.py
+│   ├── metadata.py
+│   ├── normalizer.py
+│   ├── process_manager.py
+├── requirements.txt
+├── images/
+├── install.py
+├── LICENSE.txt
+├── llm_node.py
+├── mypy.ini
+├── nodes.py
+├── README.md
+├── requirements.txt
+├── run.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_audio.py
+│   ├── test_cli_face_debugger.py
+│   ├── test_cli_face_enhancer.py
+│   ├── test_cli_face_swapper.py
+│   ├── test_cli_frame_colorizer.py
+│   ├── test_cli_frame_enhancer.py
+│   ├── test_cli_lip_syncer.py
+│   ├── test_common_helper.py
+│   ├── test_config.py
+│   ├── test_download.py
+│   ├── test_execution.py
+│   ├── test_face_analyser.py
+│   ├── test_ffmpeg.py
+│   ├── test_filesystem.py
+│   ├── test_memory.py
+│   ├── test_normalizer.py
+│   ├── test_process_manager.py
+│   ├── test_vision.py
+│   └── test_wording.py
+├── tts_generation.py
+└── utils.py
+```
+</sub>
 
 ## Example of How to Use DeepFuze Programmatically
 
