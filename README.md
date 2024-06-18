@@ -1,4 +1,4 @@
-# ⚠️⚠️⚠️Please take note of the following information: This repository is a work in progress. It is compatible with MAC and Windows with CPU support. We plan to release the enabled CUDA version for Windows by June 25th. If you are testing it on your Windows machine, please ensure that the device on the nodes is set to CPU.
+# 👉🏼👉🏼👉🏼Please take note of the following information: This repository is compatible with MAC and Windows with CPU support at this moment. We plan to release the enabled CUDA version for Windows by June 25th. If you are testing it on your Windows machine, please ensure that the device on the nodes is set to CPU.
 # DeepFuze 
 
 ## Overview
@@ -250,7 +250,7 @@ The "LLM Integration" node is used to incorporate LLM (Language Model) into the 
 - `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
 
 ----
-### DeepFuze Save Audio (Playback) Node 👺
+### DeepFuze Save Audio (Playback) Node 🔉
 
 ![DeepFuze Save_Audio_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Save_Audio_Node.jpg)
 ![DeepFuze Save_Audio](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Audio_Save.jpg)
