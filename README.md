@@ -243,6 +243,21 @@ The "LLM Integration" node is used to incorporate LLM (Language Model) into the 
 - `face_mask_padding_top` : Padding to the top on the face while lipsyncing.
 
 ----
+### DeepFuze Save Audio (Playback) Node 👺
+
+![DeepFuze Save_Audio_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Audio_Save.jpg)
+This node is used to save the output of the "Voice Cloning" node. Additionally, you can trim the audio and play it back.
+
+**Input Types:**
+- `audio`: An instance of loaded audio data.
+
+**DeepFuze Padding Features:**
+- `METADATA` : Sting Metadata.
+- `start_time` : Triming the start time.
+- `end_time` : Triming the end time.
+- `playback window` : Provides playback, save, and playback speed options.
+
+----
 ### Basic Integrations
 
 Voice Cloning + Lipsync Generation
