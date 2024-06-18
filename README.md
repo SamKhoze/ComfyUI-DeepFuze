@@ -40,6 +40,7 @@ Restart your ComfyUI
 
 ## For MAC users please set the environment variable before running it
 
+Activate your Virtual Environment, Conda or Venv
 ### Install [Pytorch](https://pytorch.org/) 
 
 [Here](https://developer.apple.com/metal/pytorch/) how to install and test your PyTorch
@@ -47,6 +48,8 @@ Restart your ComfyUI
 This method has been tested on a M1 and M3 Mac, You must run the below code on your terminal window for Mac Metal Performance Shaders (MPS) Apple's specialized solution for high-performance GPU programming on their devices. Integrating closely with the Metal framework, MPS provides a suite of highly optimized shaders for graphics and computing tasks, which is particularly beneficial in machine learning applications.
 
 ## ⚠️⚠️⚠️ Important Steps (if you miss these steps it will not work)
+
+### Copy and paste the command below to your terminal window.
 ```
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 ```
