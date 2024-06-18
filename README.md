@@ -190,7 +190,7 @@ ComfyUI-DeepFuze/
 ![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_Node.jpg)
 ![DeepFuze Lipsync Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
 
-This node generates lipsyncing video from, video, image, and audio files.
+This node generates lipsyncing video from, video, image, and audio files. For higher quality export the IMAGE output as an image batch instead of a video combined, you can get up to 4k quality image size.
 
 **Input Types:**
 - `images`: Extracted frame images as PyTorch tensors.
@@ -226,7 +226,7 @@ This node generates lipsyncing video from, video, image, and audio files.
 
 ![DeepFuze FaceSwap example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/AnimateDiff_00002-ezgif.com-video-to-gif-converter.gif)
 
-This node Swap, Enhnace, and Restore faces from, video, and image.
+This node Swaps, Enhances, and Restores faces from, video, and image. or higher quality export the IMAGE output as an image batch instead of a video combined, you can get up to 4k quality image size.
 
 **Input Types:**
 - `source_images`: Extracted frame image as PyTorch tensors for swapping.
@@ -279,7 +279,7 @@ This node is used to clone any voice from typed input. The audio file should be 
 ![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM_Node.jpg)
 ![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM.jpg)
 
-The "LLM Integration" node is used to incorporate LLM (Language Model) into the voice cloning process. You can input your dialogue and configure parameters, and the AI-generated texts will be employed for voice cloning. Furthermore, you can utilize this node in place of ChatGPT to produce text from LLM or to ask any questions in the same manner as you would with ChatGPT. You can view the output of the DeepFuze_LLM by connecting the LLM_RESPONSE to "Display Any" node from [rgthree-comfy](https://github.com/rgthree/rgthree-comfy)
+The "LLM Integration" node is used to incorporate LLM (Language Model) into the voice cloning process. You can input your dialogue and configure parameters, and the AI-generated texts will be employed for voice cloning. Furthermore, you can utilize this node in place of ChatGPT to produce text from LLM or to ask any questions in the same manner as you would with ChatGPT. You can view the output of the DeepFuze_LLM by connecting the LLM_RESPONSE to the "Display Any" node from [rgthree-comfy](https://github.com/rgthree/rgthree-comfy) this node also can be used for prompt generations and any nodes input texts. 
 
 **Input Types:**
 - `user_query`: Type your dialogues.
@@ -291,11 +291,11 @@ The "LLM Integration" node is used to incorporate LLM (Language Model) into the 
 - `model_name`: You can select from the available openai models.
 - `api_key`: Add your API Key. (Your API Key will not be saved, each time you use this node you must manually enter it.
 - `max_tokens`: is a parameter that limits the number of tokens in a model's response in OpenAI GPT APIs. It's used in requests made through GPT for Sheets and Docs, and in the ChatOpenAI() class. The default value for max_tokens is 4096 tokens, which is roughly equivalent to 3,000 words.
-- `temperature`: controls the level of randomness and creativity in its responses. It's a hyper-parameter in Large Language Models (LLMs) that balances creativity and coherence in generated text. The temperature setting is always a number between 0 and 1, with the default being 0.7:
+- `temperature`: controls the level of randomness and creativity in its responses. It's a hyper-parameter in Large Language Models (LLMs) that balances creativity and coherence in the generated text. The temperature setting is always a number between 0 and 1, with the default being 0.7:
 0: Produces very straightforward, almost deterministic responses
 1: Results in wildly varying responses
 0.7: The default temperature for ChatGPT.
-- `timeout` : set up time if request takes too long to complete and the server closes the connection.
+- `timeout` : set up time if the request takes too long to complete and the server closes the connection.
 
 ----
 ### DeepFuze Padding Node 👺
