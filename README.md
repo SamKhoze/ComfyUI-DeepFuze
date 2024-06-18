@@ -190,13 +190,14 @@ This node Swaps, Enhances, and Restores faces from, video, and image. or higher 
 ----
 ### DeepFuze_TTS Node (Voice Cloning) 🎙️
 
+![DeepFuze TTS_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_TTS_Node.jpg)
+
 **Languages:**
 
 **DeepFuze_TTS voice cloning supports 17 languages: English (en), Spanish (es), French (fr), German (de), Italian (it), Portuguese (pt), Polish (pl), Turkish (tr), Russian (ru), Dutch (nl), Czech (cs), Arabic (ar), Chinese (zh-cn), Japanese (ja), Hungarian (hu), Korean (ko) Hindi (hi).**
 
-This node is used to clone any voice from typed input. The audio file should be 10-15 seconds long for better results and should not have much noise. 
+This node is used to clone any voice from typed input. The audio file should be 10-15 seconds long for better results and should not have much noise. To avoid any sample rate error, load MP3 audio and only work with [AudioScheduler](https://github.com/a1lazydog/ComfyUI-AudioScheduler) node. We are working on developing a converter node to solve this issue. 
 
-![DeepFuze TTS_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_TTS_Node.jpg)
 **Input Types:**
 - `audio`: An instance of loaded audio data.
 - `text`: Text to generate the cloned voice audio.
