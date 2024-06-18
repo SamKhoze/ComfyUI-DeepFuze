@@ -245,7 +245,8 @@ The "LLM Integration" node is used to incorporate LLM (Language Model) into the 
 ----
 ### DeepFuze Save Audio (Playback) Node 👺
 
-![DeepFuze Save_Audio_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Audio_Save.jpg)
+![DeepFuze Save_Audio_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Save_Audio_Node.jpg)
+![DeepFuze Save_Audio](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Audio_Save.jpg)
 This node is used to save the output of the "Voice Cloning" node. Additionally, you can trim the audio and play it back.
 
 **Input Types:**
