@@ -32,7 +32,7 @@ Install from the ComfyUI manager, select Install via git URL, and copy past:
     https://github.com/SamKhoze/CompfyUI-DeepFuze.git
 ### Step 3
 
-Restart your ComfyuUI
+Restart your ComfyUI
 
 ----
 # MAC Installation 👨🏻‍💻
