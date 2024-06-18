@@ -223,7 +223,7 @@ This node generates lipsyncing video from, video, image, and WAV audio files.
 
 ![DeepFuze FaceSwap example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/AnimateDiff_00002-ezgif.com-video-to-gif-converter.gif)
 
-This node generates lipsyncing video from, video, image, and WAV audio files.
+This node Swap, Enhnace, and Restore faces from, video, and image.
 
 **Input Types:**
 - `source_images`: Extracted frame image as PyTorch tensors for swapping.
