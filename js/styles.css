@@ -1,0 +1,20 @@
+textarea[placeholder="positive_prompt"] {
+    border: 1px solid #64d509;
+ 
+
+  }
+  textarea[placeholder="positive_prompt"]:focus-visible {
+    border: 1px solid #72eb0f;
+
+  }
+
+
+textarea[placeholder="negative_prompt"] {
+  border: 1px solid #a94442;
+  border-color: #a94442; 
+}
+
+textarea[placeholder="negative_prompt"]:focus-visible {
+  border: 1px solid #de5755;
+  border-color: #de5755; 
+}
