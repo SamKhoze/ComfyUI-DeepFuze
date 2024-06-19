@@ -195,6 +195,19 @@ This node Swaps, Enhances, and Restores faces from, video, and image. or higher 
 - `pingpong`: Causes the input to be played back in reverse to create a clean loop.
 - `save_output`: Saving the output on output folder.
 
+**Face Detector Model Summary Table** (RetinaFace provides higher quality by incorporating contextual information around the face, which helps in detecting faces under various conditions, such as occlusions, different scales, and poses.
+
+| Feature                     | YOLOFace                       | RetinaFace                   | SCRFD                           | YuNet                           |
+|-----------------------------|--------------------------------|------------------------------|---------------------------------|---------------------------------|
+| **Architecture**            | Single-shot YOLO               | Single-stage RetinaNet       | Single-stage Cascade            | Lightweight Custom              |
+| **Speed**                   | Very Fast                      | Moderate                     | Fast                            | Very Fast                       |
+| **Accuracy**                | Good                           | Very High                    | High                            | Good                            |
+| **Robustness**              | Moderate                       | Very High                    | High                            | Moderate                        |
+| **Computational Efficiency**| High                           | Moderate                     | High                            | Very High                       |
+| **Use Cases**               | Real-time, less complex scenes | High-precision, robust needs | Balanced, mobile/edge devices   | Mobile, embedded, real-time     |
+| **Pros**                    | Speed                          | Accuracy, robustness         | Efficiency, accuracy            | Lightweight, efficient          |
+| **Cons**                    | Accuracy trade-offs            | Computationally heavy        | Not the fastest                 | Less robust in complex scenes   |
+
 ----
 ### DeepFuze_TTS Node (Voice Cloning) 🎙️
 
