@@ -1608,7 +1608,7 @@ NODE_CLASS_MAPPINGS = {
     "TTS_generation":TTS_generation,
     "LLM_node": LLM_node,
     "PlayBackAudio": PlayBackAudio,
-	"SaveVideo [n-suite]":SaveAudio,
+	"DeepFuze Save":SaveAudio,
 	"DeepfuzePreview":DeepfuzePreview
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -1617,6 +1617,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TTS_generation":"DeepFuze TTS",
     "LLM_node": "DeepFuze Openai LLM",
     "PlayBackAudio": "Play Audio",
-	"SaveVideo [n-suite]":"DeepFuze Save Audio",
+	"DeepFuze Save":"DeepFuze Save Audio",
 	"DeepfuzePreview": "DeepFuze Padding Preview"
 }
