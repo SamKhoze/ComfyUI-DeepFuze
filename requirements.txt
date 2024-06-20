@@ -15,7 +15,7 @@ imageio_ffmpeg
 kornia
 spandrel
 librosa
-numpy==1.26.4
+accelerate
 cython>=0.29.30
 scipy>=1.11.2
 torch>=2.1
