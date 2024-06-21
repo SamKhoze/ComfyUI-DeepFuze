@@ -69,17 +69,6 @@ pip install dlib
 pip install TTS 
 ```
 
-# Install ComfyUI-DeepFuze
-
-After preparing the environmental variables navigate into your custom_nodes folder and git clone or manually download the code and extract it into the custom_nodes folder
-```
-
-cd custom_nodes
-git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
-cd CompfyUI-DeepFuze
-pip install -r requirements.txt
-```   
-
 ### Prerequisites for Voice Cloning and Lipsyncing
 
 Below are the two ComfyUI repositories required to load video and audio. Install them into your `custom_nodes` folder:
