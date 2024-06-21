@@ -30,12 +30,13 @@ You must install [Visual Studio](https://visualstudio.microsoft.com/downloads/),
 OR VS [C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and select "Desktop Development with C++" under "Workloads -> Desktop & Mobile"
 
 ### Step 2 (installing from ComfyUI-Manager)
-From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for DeepFuze, and install the node. Restart your ComfyUI, and look at your terminal window
-
-![GitInstall](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Git%20Install.jpg)
-Install from the ComfyUI manager, select "Install Via  GIT URL", and copy past:
+From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for DeepFuze, and install the node. Restart your ComfyUI, and look at your terminal window to ensure there is no error, or Install from the ComfyUI manager, select "Install Via  GIT URL", and copy past:
 
     https://github.com/SamKhoze/CompfyUI-DeepFuze.git
+	
+![GitInstall](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Git%20Install.jpg)
+
+
 ### Step 3
 
 Restart your ComfyUI
