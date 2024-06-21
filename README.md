@@ -41,7 +41,14 @@ From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for D
 
 Restart your ComfyUI
 
+## IMPORTANT NOTE: CUDA INSTALLATION IS NOT BEGINNER-FRIENDLY, IF YOU DON'T KNOW WHAT YOU ARE DOING DO NOT TRY, USE THE CPU VERSION. (Will be available after June 25)
+## CUDA Installation
+
 ----
+Install Nvidia CUDA [Toolkit==11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive)  and [cuDNN](https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=Agnostic&cuda_version=11) (CUDA Deep Neural Network) for Deep Learning. Ensure it is Cuda11. I found this [YOUTUBE](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) video useful for installation. If you have a different version of CUDA here is a [YOUTUBE](https://www.youtube.com/watch?v=I3awjvMZw9A&t=2s) link that guides you on how to uninstall your CUDA. Make sure to create paths in your Environment variable as described on [YOUTUBE VIDEO](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) Restart your computer after creating paths. 
+
+----
+
 # MAC Installation 👨🏻‍💻
 ## Video Tutorial How To Install on MAC [YOUTUBE LINK](https://youtu.be/FWdOlj60fig)
 
