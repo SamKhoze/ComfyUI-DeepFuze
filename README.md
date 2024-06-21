@@ -46,7 +46,15 @@ Restart your ComfyUI
 
 ----
 Install Nvidia CUDA [Toolkit==11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive)  and [cuDNN](https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=Agnostic&cuda_version=11) (CUDA Deep Neural Network) for Deep Learning. Ensure it is Cuda11. I found this [YOUTUBE](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) video useful for installation. If you have a different version of CUDA here is a [YOUTUBE](https://www.youtube.com/watch?v=I3awjvMZw9A&t=2s) link that guides you on how to uninstall your CUDA. Make sure to create paths in your Environment variable as described on [YOUTUBE VIDEO](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) Restart your computer after creating paths. 
+Confirm your Cuda Installation, paste this code on your terminal window `nvcc --version` you should get a response like this: 
 
+```
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Wed_Sep_21_10:41:10_Pacific_Daylight_Time_2022
+Cuda compilation tools, release 11.8, V11.8.89
+Build cuda_11.8.r11.8/compiler.31833905_0`
+```
 ----
 
 # MAC Installation 👨🏻‍💻
