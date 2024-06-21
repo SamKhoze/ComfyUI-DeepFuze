@@ -30,10 +30,8 @@ You must install [Visual Studio](https://visualstudio.microsoft.com/downloads/),
 OR VS [C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and select "Desktop Development with C++" under "Workloads -> Desktop & Mobile"
 
 ### Step 2 (installing from ComfyUI-Manager)
-From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for DeepFuze, and install the node. Restart your ComfyUI, and look at your terminal window, if the TTS (Text To Speech Library) is not installed you have to install it manually. 
+From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for DeepFuze, and install the node. Restart your ComfyUI, and look at your terminal window
 
-![PipInstall TTS](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/PipInstall_TTS.jpg)
-### Alternative Installation Methode 
 ![GitInstall](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Git%20Install.jpg)
 Install from the ComfyUI manager, select "Install Via  GIT URL", and copy past:
 
