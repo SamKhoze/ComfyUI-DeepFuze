@@ -1414,7 +1414,7 @@ class DeepFuzeAdavance:
                 result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             else:
                 result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
-            temp_file = "/".join(enhanced_filename.split("/")[:-1]) + "_"+enhanced_filename.split("/")[-1]
+            temp_file = enhanced_filename.replace(".mp4","_.mp4") # "/".join(enhanced_filename.split("/")[:-1]) + "_"+enhanced_filename.split("/")[-1]
             subprocess.run(["ffmpeg","-i",enhanced_filename,"-i",audio_file,"-c","copy","-map","0:v:0","-map","1:a:0",temp_file,'-y'])
             filename = temp_file
 
