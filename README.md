@@ -126,6 +126,7 @@ To use the "Openai LLM" node for voice cloning dialogues, you need an OpenAI API
 
 # Nodes
 
+**DeepFuze Nodes Overview** [YOUTUBE LINK](https://youtu.be/elQzQo__kWI)
 ---
 ## DeepFuze Lipsync Node 🫦
 
