@@ -1,0 +1,270 @@
+{
+  "last_node_id": 33,
+  "last_link_id": 42,
+  "nodes": [
+    {
+      "id": 31,
+      "type": "DeepFuze Save",
+      "pos": [
+        1310,
+        1521
+      ],
+      "size": {
+        "0": 315,
+        "1": 342.00006103515625
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 40
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DeepFuze Save"
+      },
+      "widgets_values": [
+        "",
+        "0",
+        "0",
+        null
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 30,
+      "type": "PlayBackAudio",
+      "pos": [
+        1317,
+        1433
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 39
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PlayBackAudio"
+      }
+    },
+    {
+      "id": 28,
+      "type": "LoadAudio",
+      "pos": [
+        482,
+        1426
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "ElevenLabs_2023-11-20T20_19_40_Marcus - authoritative and deep_gen_s35_sb86_e1 (3).mp3",
+        "Audio"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "TTS_generation",
+      "pos": [
+        838,
+        1427
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 37
+        },
+        {
+          "name": "llm_response",
+          "type": "NEW_STRING",
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            39,
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TTS_generation"
+      },
+      "widgets_values": [
+        "",
+        "cpu",
+        "English (en)"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 32,
+      "type": "LLM_node",
+      "pos": [
+        398,
+        1583
+      ],
+      "size": {
+        "0": 401.4509582519531,
+        "1": 330.630615234375
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LLM_RESPONSE",
+          "type": "NEW_STRING",
+          "links": [
+            41,
+            42
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLM_node"
+      },
+      "widgets_values": [
+        "",
+        "DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates with ComfyUI to revolutionize facial transformations, lipsyncing, Face Swapping, Lipsync Translation, video generation, and voice cloning. This is not working",
+        "gpt-4-turbo",
+        "Add your openai API Key",
+        250,
+        0,
+        10
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 33,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        848,
+        1668
+      ],
+      "size": [
+        313.9440861621514,
+        215.70572298458455
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 42,
+          "dir": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Display Any (rgthree)"
+      },
+      "widgets_values": [
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      37,
+      28,
+      0,
+      29,
+      0,
+      "AUDIO"
+    ],
+    [
+      39,
+      29,
+      0,
+      30,
+      0,
+      "AUDIO"
+    ],
+    [
+      40,
+      29,
+      0,
+      31,
+      0,
+      "AUDIO"
+    ],
+    [
+      41,
+      32,
+      0,
+      29,
+      1,
+      "NEW_STRING"
+    ],
+    [
+      42,
+      32,
+      0,
+      33,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.351305709310415,
+      "offset": [
+        -366.3783080282162,
+        -1226.4480267860786
+      ]
+    }
+  },
+  "version": 0.4
+}
