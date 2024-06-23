@@ -59,6 +59,7 @@ Build cuda_11.8.r11.8/compiler.31833905_0`
 ----
 
 # MAC Installation 👨🏻‍💻
+**Do not install via ComfyUI-Manager it will not work, you must install it manually and follow the instructions below:**
 ## Video Tutorial How To Install on MAC [YOUTUBE LINK](https://youtu.be/FWdOlj60fig)
 
 ## For MAC users please set the environment variable before running it
@@ -84,7 +85,16 @@ pip install dlib
 ```
 pip install TTS 
 ```
-
+### Navigate into `custom_nodes` folder
+```
+cd custom_nodes
+git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
+```
+### Navigate into the `CompfyUI-DeepFuze` folder and install `requirements.txt` file 
+```
+cd CompfyUI-DeepFuze
+pip install -r requirements.txt
+```
 ### Prerequisites for Voice Cloning and Lipsyncing
 
 Below are the two ComfyUI repositories required to load video and audio. Install them into your `custom_nodes` folder:
