@@ -73,29 +73,29 @@ This method has been tested on a M1 and M3 Mac, You must run the below code on y
 
 ## ⚠️⚠️⚠️ Important Steps (if you miss these steps it will not work)
 
-### Copy and paste the command below to your terminal window.
+**Copy and paste the command below to your terminal window.**
 ```
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 ```
-### macOS needs to install the original dlib.
+**macOS needs to install the original dlib.**
 ```
 pip install dlib 
 ```
-### Install Text to Speech for Voice Cloning Node
+**Install Text to Speech for Voice Cloning Node**
 ```
 pip install TTS 
 ```
-### Navigate into `custom_nodes` folder
+**Navigate into** `custom_nodes` **folder**
 ```
 cd custom_nodes
 git clone https://github.com/SamKhoze/CompfyUI-DeepFuze.git
 ```
-### Navigate into the `CompfyUI-DeepFuze` folder and install `requirements.txt` file 
+**Navigate into the** `CompfyUI-DeepFuze` **folder and install** `requirements.txt` **file**
 ```
 cd CompfyUI-DeepFuze
 pip install -r requirements.txt
 ```
-### Prerequisites for Voice Cloning and Lipsyncing
+**Prerequisites for Voice Cloning and Lipsyncing**
 
 Below are the two ComfyUI repositories required to load video and audio. Install them into your `custom_nodes` folder:
 
