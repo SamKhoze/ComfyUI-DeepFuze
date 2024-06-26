@@ -77,6 +77,10 @@ This method has been tested on a M1 and M3 Mac, You must run the below code on y
 ```
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 ```
+**Mac users must INSTALL ONNX RUNTIME CPU instead of onnxruntime-gpu**
+```
+pip install onnxruntime
+```
 **macOS needs to install the original dlib.**
 ```
 pip install dlib 
@@ -107,10 +111,20 @@ Clone the repositories:
     git clone https://github.com/a1lazydog/ComfyUI-AudioScheduler.git
 
 
-### Errors 
+### Errors 😾
+
+CV Error: If you encounter the error "ComfyUI_windows_portable\ComfyUI\output\deepfuze\faceswap_file.mp4 could not be loaded with cv," it means that `onnxruntime` is not installed. To fix this, make sure to install `onnxruntime` for CPU and `onnxruntime-gpu` for Windows. Mac users should upgrade OpenCV using the command `pip install --upgrade opencv-python-headless` in their virtual environment. For Windows users, go to ComfyUI Manager, click on "pip install," paste `--upgrade opencv-python-headless`, click OK, and restart your ComfyUI. 
+
+----
+
+Missing zlibwapi.dll error: Search for  NVIDIA zlibwapi.dll file, download it and copy it in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin\zlibwapi.dll 
+
+----
 
 If you get an error installing TTS, it is most likely because you have different versions of Python, make sure to install the correct version
+
 ----
+
 If you get an error: ImportError: cannot import name 'get_full_repo_name' from 'huggingface_hub'
 Run the below codes on your terminal it will solve the issue
 
