@@ -1,5 +1,5 @@
 import sounddevice
-
+from io import BytesIO
 import os
 import time
 import folder_paths
@@ -38,7 +38,7 @@ class SaveAudio:
 
         #print(f"Temporary folder {frames_output_dir} has been emptied.")
         return {"required": 
-                    {"audio": ("AUDIO", ),
+                    {"audio": ("VHS_AUDIO", ),
                      "METADATA": ("STRING",  {"default": ""}  ), 
                      "start_time": ([str(i) for i in range(10000)],),
                      "end_time": ([str(i) for i in range(10000)],),
@@ -58,7 +58,7 @@ class SaveAudio:
     def save_video(self, audio,METADATA,start_time,end_time,prompt=None, extra_pnginfo=None):
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
         outfile = os.path.join(audio_path,str(time.time()).replace(".","_")+".wav")
-        write(file_path,audio.sample_rate,audio.audio_data)
+        open(file_path,"wb").write(audio())
         Fs, data = wavfile.read(file_path)
         n = data.size
         t = n / Fs
@@ -81,7 +81,7 @@ class PlayBackAudio:
     def INPUT_TYPES(self):
         return {
             "required":{
-                "audio": ("AUDIO",)
+                "audio": ("VHS_AUDIO",)
             }
         }
     OUTPUT_NODE = True
@@ -91,5 +91,8 @@ class PlayBackAudio:
     FUNCTION = "play_audio"
 
     def play_audio(self,audio):
+		file = BytesIO(audio())
+        audio_file = AudioSegment.from_file(file, format="wav")
+        audio = AudioData(audio_file)
         sounddevice.play(audio.audio_data,audio.sample_rate)
         return ()
