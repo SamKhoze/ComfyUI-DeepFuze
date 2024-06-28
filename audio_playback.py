@@ -91,7 +91,7 @@ class PlayBackAudio:
     FUNCTION = "play_audio"
 
     def play_audio(self,audio):
-		file = BytesIO(audio())
+        file = BytesIO(audio())
         audio_file = AudioSegment.from_file(file, format="wav")
         audio = AudioData(audio_file)
         sounddevice.play(audio.audio_data,audio.sample_rate)
