@@ -1330,7 +1330,7 @@ class DeepFuzeAdavance:
             output_files.append(file_path)
 
         audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
-        write(audio_file,audio.sample_rate,audio.audio_data)
+        open(audio_file,"wb").write(audio())
         print(audio_file)
         filename = os.path.join(result_dir,f"{str(time.time()).replace('.','')}.mp4")
         enhanced_filename = os.path.join(result_dir,f"enhanced_{str(time.time()).replace('.','')}.mp4")
@@ -1480,7 +1480,7 @@ class TTS_generation:
     def INPUT_TYPES(self):
         return {
             "required": {
-                "audio": ("AUDIO",),
+                "audio": ("VHS_AUDIO",),
             },
             "optional": {
                 "llm_response": ("NEW_STRING",{"default":""}),
@@ -1493,7 +1493,7 @@ class TTS_generation:
             }
         }
     
-    RETURN_TYPES = ("AUDIO",)  # Output type(s) of the node
+    RETURN_TYPES = ("VHS_AUDIO",)  # Output type(s) of the node
     FUNCTION = "generate_audio"  # Entry-point method name
 
     CATEGORY = "DeepFuze"  # Category for the node in the UI
@@ -1507,7 +1507,7 @@ class TTS_generation:
         
         language = supported_language.split("(")[1][:-1]
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
-        write(file_path,audio.sample_rate,audio.audio_data)
+        open(file_path,"wb").write(audio())
         command = [
             'python', 'tts_generation.py',
             '--model', checkpoint_path_voice,
@@ -1524,9 +1524,8 @@ class TTS_generation:
 
         print("stdout:", result.stdout)
         print("stderr:", result.stderr)
-        audio_file = AudioSegment.from_file(file_path, format="wav")
-        audio_data = AudioData(audio_file)
-        return (audio_data,)
+        audio = get_audio(file_path)
+        return (lambda : audio,)
 
 
 
