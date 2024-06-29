@@ -7,6 +7,7 @@ from scipy.io import wavfile
 from scipy.io.wavfile import write
 import subprocess
 import sounddevice
+import numpy as np
 from pydub import AudioSegment
 
 audio_path = os.path.join(folder_paths.get_input_directory(),"audio")
