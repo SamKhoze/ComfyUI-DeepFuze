@@ -1028,7 +1028,7 @@ class DeepFuzeAdavance:
         return {
             "required": {
                 "images": ("IMAGE",),
-                "audio": ("AUDIO",),
+                "audio": ("VHS_AUDIO",),
                 "enhancer": ("None,codeformer,gfpgan_1.2,gfpgan_1.3,gfpgan_1.4,gpen_bfr_256,gpen_bfr_512,gpen_bfr_1024,gpen_bfr_2048,restoreformer_plus_plus".split(","),{"default":'None'}),
                 "frame_enhancer": ("None,clear_reality_x4,lsdir_x4,nomos8k_sc_x4,real_esrgan_x2,real_esrgan_x2_fp16,real_esrgan_x4,real_esrgan_x4_fp16,real_hatgan_x4,span_kendata_x4,ultra_sharp_x4".split(","),{"default":'None'}),
                 "face_mask_padding_left": ("INT",{"default":0,"min":0,"max":30,"step":1}),
