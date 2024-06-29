@@ -17,6 +17,30 @@ output_dir = os.path.join(folder_paths.get_output_directory(),"n-suite")
 YELLOW = '\33[33m'
 END = '\33[0m'
 
+class AudioData:
+    def __init__(self, audio_file) -> None:
+        
+        # Extract the sample rate
+        sample_rate = audio_file.frame_rate
+
+        # Get the number of audio channels
+        num_channels = audio_file.channels
+
+        # Extract the audio data as a NumPy array
+        audio_data = np.array(audio_file.get_array_of_samples())
+        self.audio_data = audio_data
+        self.sample_rate = sample_rate
+        self.num_channels = num_channels
+    
+    def get_channel_audio_data(self, channel: int):
+        if channel < 0 or channel >= self.num_channels:
+            raise IndexError(f"Channel '{channel}' out of range. total channels is '{self.num_channels}'.")
+        return self.audio_data[channel::self.num_channels]
+    
+    def get_channel_fft(self, channel: int):
+        audio_data = self.get_channel_audio_data(channel)
+        return fft(audio_data)
+
 os.makedirs(output_dir,exist_ok=True)
 os.makedirs(os.path.join(output_dir,"videos"),exist_ok=True)
 
