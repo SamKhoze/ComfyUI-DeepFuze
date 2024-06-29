@@ -108,7 +108,6 @@ Clone the repositories:
 
     cd custom_nodes
     git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
-    git clone https://github.com/a1lazydog/ComfyUI-AudioScheduler.git
 
 
 ### Errors 😾
@@ -158,7 +157,7 @@ To use the "Openai LLM" node for voice cloning dialogues, you need an OpenAI API
 ![DeepFuze Lipsync Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
 
 This node generates lipsyncing video from, video, image, and audio files. For higher quality export the IMAGE output as an image batch instead of a video combined, you can get up to 4k quality image size.
-IMPORTANT: You must load audio with the "load audio" node from the [AudioScheduler](https://github.com/a1lazydog/ComfyUI-AudioScheduler) node. VHS load audio is currently not compatible. We are working on an additional converter node to convert any audio input to a unified output.
+IMPORTANT: You must load audio with the "VHS load audio" node from the [VideoHelperSuit](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git) node. 
 
 **Input Types:**
 - `images`: Extracted frame images as PyTorch tensors.
