@@ -44,31 +44,17 @@ class AudioData:
 
 os.makedirs(output_dir,exist_ok=True)
 os.makedirs(os.path.join(output_dir,"videos"),exist_ok=True)
-
 class SaveAudio:
-    def __init__(self):
-        
-        self.type = "output"
-
      
     @classmethod
     def INPUT_TYPES(s):
         
-        try:
-            shutil.rmtree(frames_output_dir)
-            os.mkdir(frames_output_dir)
-        except:
-            pass
-        
-
         #print(f"Temporary folder {frames_output_dir} has been emptied.")
         return {"required": 
                     {"audio": ("VHS_AUDIO", ),
-                     "METADATA": ("STRING",  {"default": ""}  ), 
                      "start_time": ([str(i) for i in range(10000)],),
                      "end_time": ([str(i) for i in range(10000)],),
                      },
-                "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
                 }
                 
 
@@ -80,8 +66,11 @@ class SaveAudio:
 
     CATEGORY = "DeepFuze"
 
-    def save_video(self, audio,METADATA,start_time,end_time,prompt=None, extra_pnginfo=None):
+    def save_video(self, audio,start_time,end_time):
+        audio_path = folder_paths.get_input_directory()
+        audio_root = os.path.basename(audio_path)
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
+        print(audio_path)
         outfile = os.path.join(audio_path,str(time.time()).replace(".","_")+".wav")
         open(file_path,"wb").write(audio())
         Fs, data = wavfile.read(file_path)
@@ -93,11 +82,9 @@ class SaveAudio:
         if int(end_time) > 0:
             subprocess.run(['ffmpeg','-i',file_path,'-ss',start_time,'-to',end_time,outfile])
             file_path = outfile
-        file_path_ = file_path.replace(".wav",".mp4")
-        print(file_path)
-        file_path_ = os.path.join(output_dir,"videos",file_path_.split('/')[-1])
-        os.system(f"ffmpeg -i {file_path} {file_path_}")
-        return {"ui": {"text": [file_path_.split("/")[-1]],}}
+        audio_name = file_path.split("/")[-1]
+        print(audio_name,"---",audio_root)
+        return {"ui": {"audio":[audio_name,audio_root]}}
 
 
 class PlayBackAudio:
