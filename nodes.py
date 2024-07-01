@@ -1017,7 +1017,7 @@ class DeepFuzeFaceSwap:
             # faceswap_filename = temp_file
 
         print(result.stderr)
-		audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
+        audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
         open(audio_file,"wb").write(audio())
         subprocess.run(f"ffmpeg -i {faceswap_filename} -i {audio_file} -c copy {faceswap_filename.replace('.mp4','_.mp4')} -y".split())
 
