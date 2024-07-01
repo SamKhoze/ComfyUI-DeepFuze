@@ -145,11 +145,11 @@ function previewAudio(node,file,type){
 app.registerExtension({
 	name: "UVR5.AudioPreviewer",
 	async beforeRegisterNodeDef(nodeType, nodeData, app) {
-		if (nodeData?.name == "PreViewAudio") {
+		
 			nodeType.prototype.onExecuted = function (data) {
 				previewAudio(this, data.audio[0], data.audio[1]);
 			}
             addPreviewOptions(nodeType)
-		}
+		
 	}
 });
