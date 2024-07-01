@@ -612,6 +612,7 @@ class DeepFuzeFaceSwap:
             "required": {
                 "source_images": ("IMAGE",),
                 "target_images": ("IMAGE",),
+				"audio": ("VHS_AUDIO",),
                 "enhancer": ("None,codeformer,gfpgan_1.2,gfpgan_1.3,gfpgan_1.4,gpen_bfr_256,gpen_bfr_512,gpen_bfr_1024,gpen_bfr_2048,restoreformer_plus_plus".split(","),{"default":'None'}),
                 "faceswap_model":("blendswap_256,inswapper_128,inswapper_128_fp16,simswap_256,simswap_512_unofficial,uniface_256".split(","),{"default":"blendswap_256"}),
                 "frame_enhancer": ("None,clear_reality_x4,lsdir_x4,nomos8k_sc_x4,real_esrgan_x2,real_esrgan_x2_fp16,real_esrgan_x4,real_esrgan_x4_fp16,real_hatgan_x4,span_kendata_x4,ultra_sharp_x4".split(","),{"default":'None'}),
@@ -657,6 +658,7 @@ class DeepFuzeFaceSwap:
         self,
         source_images,
         target_images,
+		audio,
         enhancer,
         faceswap_model,
         frame_enhancer,
@@ -1015,7 +1017,11 @@ class DeepFuzeFaceSwap:
             # faceswap_filename = temp_file
 
         print(result.stderr)
-        return load_video_cv(faceswap_filename,0,'Disabled',512,512,0,0,1)
+		audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
+        open(audio_file,"wb").write(audio())
+        subprocess.run(f"ffmpeg -i {faceswap_filename} -i {audio_file} -c copy {faceswap_filename.replace('.mp4','_.mp4')} -y".split())
+
+        return load_video_cv(faceswap_filename.replace('.mp4','_.mp4'),0,'Disabled',512,512,0,0,1)
 
 
 
