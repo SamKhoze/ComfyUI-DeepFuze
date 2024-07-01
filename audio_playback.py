@@ -9,7 +9,7 @@ import subprocess
 import sounddevice
 import numpy as np
 from pydub import AudioSegment
-
+from .utils import get_audio
 audio_path = os.path.join(folder_paths.get_input_directory(),"audio")
 
 
@@ -58,15 +58,15 @@ class SaveAudio:
                 }
                 
 
-    RETURN_NAMES = ()
-    RETURN_TYPES = ()
-    FUNCTION = "save_video"
+    RETURN_NAMES = ("AUDIO",)
+    RETURN_TYPES = ("VHS_AUDIO",)
+    FUNCTION = "save_audio"
 
     OUTPUT_NODE = True
 
     CATEGORY = "DeepFuze"
 
-    def save_video(self, audio,start_time,end_time):
+    def save_audio(self, audio,start_time,end_time):
         audio_path = folder_paths.get_input_directory()
         audio_root = os.path.basename(audio_path)
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
@@ -83,8 +83,8 @@ class SaveAudio:
             subprocess.run(['ffmpeg','-i',file_path,'-ss',start_time,'-to',end_time,outfile])
             file_path = outfile
         audio_name = file_path.split("/")[-1]
-        print(audio_name,"---",audio_root)
-        return {"ui": {"audio":[audio_name,audio_root]}}
+        audio = get_audio(file_path)
+        return {"ui": {"audio":[audio_name,audio_root]},"result" : (lambda : audio,)}
 
 
 class PlayBackAudio:
