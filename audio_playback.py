@@ -51,7 +51,7 @@ class SaveAudio:
         
         #print(f"Temporary folder {frames_output_dir} has been emptied.")
         return {"required": 
-                    {"audio": ("VHS_AUDIO", ),
+                    {"audio": ("AUDIO", ),
                      "start_time": ([str(i) for i in range(10000)],),
                      "end_time": ([str(i) for i in range(10000)],),
                      },
@@ -59,7 +59,7 @@ class SaveAudio:
                 
 
     RETURN_NAMES = ("AUDIO",)
-    RETURN_TYPES = ("VHS_AUDIO",)
+    RETURN_TYPES = ("AUDIO",)
     FUNCTION = "save_audio"
 
     OUTPUT_NODE = True
@@ -93,7 +93,7 @@ class PlayBackAudio:
     def INPUT_TYPES(self):
         return {
             "required":{
-                "audio": ("VHS_AUDIO",)
+                "audio": ("AUDIO",)
             }
         }
     OUTPUT_NODE = True
