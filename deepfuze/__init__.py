@@ -76,8 +76,6 @@ if __name__ == "__main__":
     deepfuze.load_video('path/to/video.mp4')
     deepfuze.load_audio('path/to/audio.mp3')
     deepfuze.load_checkpoint('path/to/checkpoint_path')
-    # Set parameters (optional)
-    deepfuze.set_parameters(sync_level=5, transform_intensity=3)
 
     # Generate lipsynced video
     output_path = deepfuze.generate(output='path/to/output.mp4')
