@@ -612,7 +612,7 @@ class DeepFuzeFaceSwap:
             "required": {
                 "source_images": ("IMAGE",),
                 "target_images": ("IMAGE",),
-				"audio": ("VHS_AUDIO",),
+				"audio": ("AUDIO",),
                 "enhancer": ("None,codeformer,gfpgan_1.2,gfpgan_1.3,gfpgan_1.4,gpen_bfr_256,gpen_bfr_512,gpen_bfr_1024,gpen_bfr_2048,restoreformer_plus_plus".split(","),{"default":'None'}),
                 "faceswap_model":("blendswap_256,inswapper_128,inswapper_128_fp16,simswap_256,simswap_512_unofficial,uniface_256".split(","),{"default":"blendswap_256"}),
                 "frame_enhancer": ("None,clear_reality_x4,lsdir_x4,nomos8k_sc_x4,real_esrgan_x2,real_esrgan_x2_fp16,real_esrgan_x4,real_esrgan_x4_fp16,real_hatgan_x4,span_kendata_x4,ultra_sharp_x4".split(","),{"default":'None'}),
@@ -645,7 +645,7 @@ class DeepFuzeFaceSwap:
         }
 
 
-    RETURN_TYPES = ("IMAGE", "INT", "VHS_AUDIO", "VHS_VIDEOINFO",)
+    RETURN_TYPES = ("IMAGE", "INT", "AUDIO", "VHS_VIDEOINFO",)
     RETURN_NAMES = ("IMAGE", "frame_count", "audio", "video_info",)
 
     # RETURN_TYPES = ("VHS_FILENAMES",)
@@ -1034,7 +1034,7 @@ class DeepFuzeAdavance:
         return {
             "required": {
                 "images": ("IMAGE",),
-                "audio": ("VHS_AUDIO",),
+                "audio": ("AUDIO",),
                 "enhancer": ("None,codeformer,gfpgan_1.2,gfpgan_1.3,gfpgan_1.4,gpen_bfr_256,gpen_bfr_512,gpen_bfr_1024,gpen_bfr_2048,restoreformer_plus_plus".split(","),{"default":'None'}),
                 "frame_enhancer": ("None,clear_reality_x4,lsdir_x4,nomos8k_sc_x4,real_esrgan_x2,real_esrgan_x2_fp16,real_esrgan_x4,real_esrgan_x4_fp16,real_hatgan_x4,span_kendata_x4,ultra_sharp_x4".split(","),{"default":'None'}),
                 "face_mask_padding_left": ("INT",{"default":0,"min":0,"max":30,"step":1}),
@@ -1066,7 +1066,7 @@ class DeepFuzeAdavance:
         }
 
 
-    RETURN_TYPES = ("IMAGE", "INT", "VHS_AUDIO", "VHS_VIDEOINFO",)
+    RETURN_TYPES = ("IMAGE", "INT", "AUDIO", "VHS_VIDEOINFO",)
     RETURN_NAMES = ("IMAGE", "frame_count", "audio", "video_info",)
 
     # RETURN_TYPES = ("VHS_FILENAMES",)
@@ -1486,7 +1486,7 @@ class TTS_generation:
     def INPUT_TYPES(self):
         return {
             "required": {
-                "audio": ("VHS_AUDIO",),
+                "audio": ("AUDIO",),
             },
             "optional": {
                 "llm_response": ("NEW_STRING",{"default":""}),
@@ -1499,7 +1499,7 @@ class TTS_generation:
             }
         }
     
-    RETURN_TYPES = ("VHS_AUDIO",)  # Output type(s) of the node
+    RETURN_TYPES = ("AUDIO",)  # Output type(s) of the node
     FUNCTION = "generate_audio"  # Entry-point method name
 
     CATEGORY = "DeepFuze"  # Category for the node in the UI
