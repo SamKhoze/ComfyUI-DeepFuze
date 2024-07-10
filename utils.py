@@ -165,6 +165,7 @@ def get_audio(file, start_time=0, duration=0):
         audio = torch.frombuffer(bytearray(res.stdout), dtype=torch.float32)
     except subprocess.CalledProcessError as e:
         audio = torch.zeros(1,2)
+        return {'waveform': audio, 'sample_rate': '16000'}
     match = re.search(', (\\d+) Hz, (\\w+), ',res.stderr.decode('utf-8'))
     if match:
         ar = int(match.group(1))
