@@ -73,7 +73,7 @@ class SaveAudio:
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
         print(audio_path)
         outfile = os.path.join(audio_path,str(time.time()).replace(".","_")+".wav")
-        torchaudio.save(file_path,audio["waveform"],audio["sample_rate"])
+        torchaudio.save(file_path,audio["waveform"][0],audio["sample_rate"])
         Fs, data = wavfile.read(file_path)
         n = data.size
         t = n / Fs
@@ -105,7 +105,7 @@ class PlayBackAudio:
 
     def play_audio(self,audio):
         file = os.path.join(folder_paths.get_input_directory(),str(time.time()).replace(".","")+".wav")
-		torchaudio.save(file,audio["waveform"],audio["sample_rate"])
+        torchaudio.save(file,audio["waveform"][0],audio["sample_rate"])
         audio_file = AudioSegment.from_file(file, format="wav")
         audio = AudioData(audio_file)
         sounddevice.play(audio.audio_data,audio.sample_rate)
