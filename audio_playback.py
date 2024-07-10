@@ -71,21 +71,13 @@ class SaveAudio:
         audio_path = folder_paths.get_input_directory()
         audio_root = os.path.basename(audio_path)
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
-        print(audio_path)
+        print(audio_path,file_path)
         outfile = os.path.join(audio_path,str(time.time()).replace(".","_")+".wav")
         torchaudio.save(file_path,audio["waveform"][0],audio["sample_rate"])
-        Fs, data = wavfile.read(file_path)
-        n = data.size
-        t = n / Fs
-        print(t)
-        if t < int(end_time):
-            end_time = t
-        if int(end_time) > 0:
-            subprocess.run(['ffmpeg','-i',file_path,'-ss',start_time,'-to',end_time,outfile])
-            file_path = outfile
         audio_name = file_path.split("/")[-1]
         audio = get_audio(file_path)
-        return {"ui": {"audio":[audio_name,audio_root]},"result" : audio}
+        print(audio)
+        return {"ui": {"audio":[audio_name,audio_root]},"result" : [audio]}
 
 
 class PlayBackAudio:
