@@ -85,7 +85,7 @@ class SaveAudio:
             file_path = outfile
         audio_name = file_path.split("/")[-1]
         audio = get_audio(file_path)
-        return {"ui": {"audio":[audio_name,audio_root]},"result" : (lambda : audio,)}
+        return {"ui": {"audio":[audio_name,audio_root]},"result" : audio}
 
 
 class PlayBackAudio:
@@ -104,7 +104,7 @@ class PlayBackAudio:
     FUNCTION = "play_audio"
 
     def play_audio(self,audio):
-        file = BytesIO(audio())
+        file = os.path.join(folder_paths.get_input_directory(),str(time.time()).replace(".","")+".wav")
 		torchaudio.save(file,audio["waveform"],audio["sample_rate"])
         audio_file = AudioSegment.from_file(file, format="wav")
         audio = AudioData(audio_file)
