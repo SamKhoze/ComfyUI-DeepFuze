@@ -1416,7 +1416,7 @@ class TTS_generation:
         
         language = supported_language.split("(")[1][:-1]
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
-        torchaudio.save(audio_file,audio["waveform"][0],audio["sample_rate"])
+        torchaudio.save(file_path,audio["waveform"][0],audio["sample_rate"])
         command = [
             'python', 'tts_generation.py',
             '--model', checkpoint_path_voice,
