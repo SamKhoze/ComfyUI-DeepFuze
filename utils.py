@@ -8,7 +8,6 @@ from collections.abc import Mapping
 import torch
 
 import server
-from .logger import logger
 
 BIGMIN = -(2**53-1)
 BIGMAX = (2**53-1)
@@ -48,7 +47,6 @@ else:
     except:
         if "VHS_USE_IMAGEIO_FFMPEG" in os.environ:
             raise
-        logger.warn("Failed to import imageio_ffmpeg")
     if "VHS_USE_IMAGEIO_FFMPEG" in os.environ:
         ffmpeg_path = imageio_ffmpeg_path
     else:
@@ -60,7 +58,6 @@ else:
         if os.path.isfile("ffmpeg.exe"):
             ffmpeg_paths.append(os.path.abspath("ffmpeg.exe"))
         if len(ffmpeg_paths) == 0:
-            logger.error("No valid ffmpeg found.")
             ffmpeg_path = None
         elif len(ffmpeg_paths) == 1:
             #Evaluation of suitability isn't required, can take sole option
@@ -167,7 +164,6 @@ def get_audio(file, start_time=0, duration=0):
                               capture_output=True, check=True)
         audio = torch.frombuffer(bytearray(res.stdout), dtype=torch.float32)
     except subprocess.CalledProcessError as e:
-        logger.warning(f"Failed to extract audio from: {file}")
         audio = torch.zeros(1,2)
     match = re.search(', (\\d+) Hz, (\\w+), ',res.stderr.decode('utf-8'))
     if match:
@@ -199,7 +195,7 @@ class LazyAudioMap(Mapping):
         if self._dict is None:
             self._dict = get_audio(self.file, self.start_time, self.duration)
         return len(self._dict)
-def lazy_get_audio(file, start_time=0, duration=0):
+def lazy_eval(file, start_time=0, duration=0):
     return LazyAudioMap(file, start_time, duration)
 
 def is_url(url):
