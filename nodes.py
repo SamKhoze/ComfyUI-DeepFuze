@@ -12,7 +12,7 @@ import datetime
 from typing import List
 import torch
 import psutil
-
+import torchaudio
 from PIL import Image, ExifTags
 from PIL.PngImagePlugin import PngInfo
 from pathlib import Path
@@ -1018,7 +1018,7 @@ class DeepFuzeFaceSwap:
 
         print(result.stderr)
         audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
-        open(audio_file,"wb").write(audio())
+        torchaudio.save(audio_file,audio["waveform"],audio["sample_rate"])
         subprocess.run(f"ffmpeg -i {faceswap_filename} -i {audio_file} -c copy {faceswap_filename.replace('.mp4','_.mp4')} -y".split())
 
         return load_video_cv(faceswap_filename.replace('.mp4','_.mp4'),0,'Disabled',512,512,0,0,1)
@@ -1336,7 +1336,7 @@ class DeepFuzeAdavance:
             output_files.append(file_path)
 
         audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
-        open(audio_file,"wb").write(audio())
+        torchaudio.save(audio_file,audio["waveform"],audio["sample_rate"])
         print(audio_file)
         filename = os.path.join(result_dir,f"{str(time.time()).replace('.','')}.mp4")
         enhanced_filename = os.path.join(result_dir,f"enhanced_{str(time.time()).replace('.','')}.mp4")
@@ -1513,7 +1513,7 @@ class TTS_generation:
         
         language = supported_language.split("(")[1][:-1]
         file_path = os.path.join(audio_path,str(time.time()).replace(".","")+".wav")
-        open(file_path,"wb").write(audio())
+        torchaudio.save(audio_file,audio["waveform"],audio["sample_rate"])
         command = [
             'python', 'tts_generation.py',
             '--model', checkpoint_path_voice,
@@ -1531,7 +1531,7 @@ class TTS_generation:
         print("stdout:", result.stdout)
         print("stderr:", result.stderr)
         audio = get_audio(file_path)
-        return (lambda : audio,)
+        return (audio)
 
 
 
