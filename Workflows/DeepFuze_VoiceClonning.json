@@ -1,0 +1,244 @@
+{
+  "last_node_id": 19,
+  "last_link_id": 26,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "VHS_LoadAudioUpload",
+      "pos": [
+        857,
+        412
+      ],
+      "size": {
+        "0": 226.8000030517578,
+        "1": 130
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadAudioUpload"
+      },
+      "widgets_values": {
+        "audio": "ElevenLabs_2023-11-20T20_19_40_Marcus - authoritative and deep_gen_s35_sb86_e1.mp3",
+        "start_time": 0,
+        "duration": 0,
+        "choose audio to upload": "image"
+      }
+    },
+    {
+      "id": 9,
+      "type": "TTS_generation",
+      "pos": [
+        1125,
+        530
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 10
+        },
+        {
+          "name": "llm_response",
+          "type": "NEW_STRING",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TTS_generation"
+      },
+      "widgets_values": [
+        "DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates with ComfyUI to revolutionize facial transformations, lipsyncing, Face Swapping, Lipsync Translation, video generation, and voice cloning.",
+        "cuda",
+        "English (en)"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 16,
+      "type": "LLM_node",
+      "pos": [
+        647,
+        712
+      ],
+      "size": {
+        "0": 400,
+        "1": 246.00001525878906
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LLM_RESPONSE",
+          "type": "NEW_STRING",
+          "links": [
+            20,
+            25
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLM_node"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "gpt-4o",
+        "add yoour api Key",
+        250,
+        0,
+        10
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 11,
+      "type": "Display Any (rgthree)",
+      "pos": [
+        1147,
+        794
+      ],
+      "size": {
+        "0": 334.53424072265625,
+        "1": 180.23825073242188
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 25,
+          "dir": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Display Any (rgthree)"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 10,
+      "type": "DeepFuze Save",
+      "pos": [
+        1605,
+        637
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DeepFuze Save"
+      },
+      "widgets_values": [
+        "0",
+        "0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    }
+  ],
+  "links": [
+    [
+      10,
+      3,
+      0,
+      9,
+      0,
+      "AUDIO"
+    ],
+    [
+      13,
+      9,
+      0,
+      10,
+      0,
+      "AUDIO"
+    ],
+    [
+      20,
+      16,
+      0,
+      9,
+      1,
+      "NEW_STRING"
+    ],
+    [
+      25,
+      16,
+      0,
+      11,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650705,
+      "offset": {
+        "0": 168.51865396559649,
+        "1": 352.1326873601254
+      }
+    }
+  },
+  "version": 0.4
+}
