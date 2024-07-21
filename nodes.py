@@ -41,7 +41,7 @@ try:
 except: pass
 audio_extensions = ['mp3', 'mp4', 'wav', 'ogg']
 
-
+path_cwd = "ComfyUI/custom_nodes/ComfyUI-DeepFuze" if os.path.isdir("ComfyUI/custom_nodes/ComfyUI-DeepFuze") else "custom_nodes/ComfyUI-DeepFuze"
 
 video_extensions = ['webm', 'mp4', 'mkv', 'gif']
 
@@ -861,7 +861,7 @@ class DeepFuzeFaceSwap:
             command.extend(['--execution-providers',"coreml"])
         print(command)
         if platform == "win32":
-            result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+            result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
         else:
             result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
         # audio_file = os.path.join(audio_dir,str(time.time()).replace(".","")+".wav")
@@ -888,7 +888,7 @@ class DeepFuzeFaceSwap:
                 command.extend(['--execution-providers',"coreml"])
             print(command)
             if platform == "win32":
-                result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+                result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
             else:
                 result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
 
@@ -912,7 +912,7 @@ class DeepFuzeFaceSwap:
             elif device=="mps":
                 command.extend(['--execution-providers',"coreml"])
             if platform == "win32":
-                result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+                result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
             else:
                 result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             # temp_file = "/".join(faceswap_filename.split("/")[:-1]) + "_"+faceswap_filename.split("/")[-1]
@@ -1272,7 +1272,7 @@ class DeepFuzeAdavance:
             command.extend(['--execution-providers',"coreml"])
         print(command)
         if platform == "win32":
-            result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+            result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
         else:
             result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
         # print(result.stdout.splitlines()[-1])
@@ -1296,7 +1296,7 @@ class DeepFuzeAdavance:
                 command.extend(['--execution-providers',"coreml"])
             print(command)
             if platform == "win32":
-                result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+                result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
             else:
                 result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             filename = enhanced_filename
@@ -1321,7 +1321,7 @@ class DeepFuzeAdavance:
             elif device=="mps":
                 command.extend(['--execution-providers',"coreml"])
             if platform == "win32":
-                result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+                result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
             else:
                 result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             temp_file = enhanced_filename.replace(".mp4","_.mp4") # "/".join(enhanced_filename.split("/")[:-1]) + "_"+enhanced_filename.split("/")[-1]
@@ -1428,7 +1428,7 @@ class TTS_generation:
             '--device', device
         ]
         if platform == "win32":
-            result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+            result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
         else:
             result = subprocess.run(command, cwd="custom_nodes/ComfyUI-DeepFuze",capture_output=True, text=True)
 
@@ -1495,7 +1495,7 @@ class DeepfuzePreview:
             ]
             print(command)
             if platform == "win32":
-                result = subprocess.run(command,cwd="ComfyUI/custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
+                result = subprocess.run(command,cwd=path_cwd,stdout=subprocess.PIPE)
             else:
                 result = subprocess.run(command,cwd="custom_nodes/ComfyUI-DeepFuze",stdout=subprocess.PIPE)
             print(result.stdout)
