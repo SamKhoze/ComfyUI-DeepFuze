@@ -519,7 +519,7 @@ class DeepFuzeFaceSwap:
                 "faceswap_model":("blendswap_256,inswapper_128,inswapper_128_fp16,simswap_256,simswap_512_unofficial,uniface_256".split(","),{"default":"blendswap_256"}),
                 "frame_enhancer": ("None,clear_reality_x4,lsdir_x4,nomos8k_sc_x4,real_esrgan_x2,real_esrgan_x2_fp16,real_esrgan_x4,real_esrgan_x4_fp16,real_hatgan_x4,span_kendata_x4,ultra_sharp_x4".split(","),{"default":'None'}),
                 "face_detector_model" : ("retinaface,scrfd,yoloface,yunet".split(","),{"default":"yoloface"}),
-                "reference_face_index" : ("INT",{"default":0,"min":0,"max":5,"step":1},{"default":0}),
+                "reference_face_index" : ("INT",{"default":0,"min":0,"max":5,"step":1}),
                 "face_mask_padding_left": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "face_mask_padding_right": ("INT",{"default":0,"min":0,"max":30,"step":1}),
                 "face_mask_padding_bottom": ("INT",{"default":0,"min":0,"max":30,"step":1}),
