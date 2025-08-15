@@ -1,3 +1,4 @@
+# THIS REPOSITORY IS NOT COMPATIBLE WITH THE LATEST VERSION OF COMFYUI, DUE TO NOT BEING UPDATED #
 # 👉🏼👉🏼👉🏼Please take note of the following information: This repository is compatible and optimized for use with MAC CPU+MPS and Windows with CPU+CUDA. The installation process is not beginner-friendly for enabling CUDA [Toolkit==11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive) and [cuDNN](https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=Agnostic&cuda_version=11) (CUDA Deep Neural Network). If you are unsure about installing CUDA, you can still use the CPU, and no CUDA installation will be necessary. However, if you are able to install CUDA correctly, the processing speed will increase significantly.
 # DeepFuze 
 ### Watch the 4k Quality Video on [YOUTUBE](https://youtu.be/PTXMNz2xyVY)
