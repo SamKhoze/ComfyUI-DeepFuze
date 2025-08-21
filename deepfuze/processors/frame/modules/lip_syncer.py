@@ -34,7 +34,7 @@ MODELS : ModelSet =\
 {
 	'wav2lip_gan':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/wav2lip_gan.onnx',
+		'url': 'https://huggingface.co/JackCui/facefusion/resolve/main/wav2lip_gan.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/wav2lip_gan.onnx')
 	}
 }

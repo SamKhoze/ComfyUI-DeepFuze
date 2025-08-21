@@ -28,70 +28,70 @@ MODELS : ModelSet =\
 {
 	'clear_reality_x4':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/clear_reality_x4.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/clear_reality_x4.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/clear_reality_x4.onnx'),
 		'size': (128, 8, 4),
 		'scale': 4
 	},
 	'lsdir_x4':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/lsdir_x4.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/lsdir_x4.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/lsdir_x4.onnx'),
 		'size': (128, 8, 4),
 		'scale': 4
 	},
 	'nomos8k_sc_x4':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/nomos8k_sc_x4.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/nomos8k_sc_x4.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/nomos8k_sc_x4.onnx'),
 		'size': (128, 8, 4),
 		'scale': 4
 	},
 	'real_esrgan_x2':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/real_esrgan_x2.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/real_esrgan_x2.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/real_esrgan_x2.onnx'),
 		'size': (256, 16, 8),
 		'scale': 2
 	},
 	'real_esrgan_x2_fp16':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/real_esrgan_x2_fp16.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/real_esrgan_x2_fp16.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/real_esrgan_x2_fp16.onnx'),
 		'size': (256, 16, 8),
 		'scale': 2
 	},
 	'real_esrgan_x4':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/real_esrgan_x4.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/real_esrgan_x4.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/real_esrgan_x4.onnx'),
 		'size': (256, 16, 8),
 		'scale': 4
 	},
 	'real_esrgan_x4_fp16':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/real_esrgan_x4_fp16.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/real_esrgan_x4_fp16.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/real_esrgan_x4_fp16.onnx'),
 		'size': (256, 16, 8),
 		'scale': 4
 	},
 	'real_hatgan_x4':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/real_hatgan_x4.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/real_hatgan_x4.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/real_hatgan_x4.onnx'),
 		'size': (256, 16, 8),
 		'scale': 4
 	},
 	'span_kendata_x4':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/span_kendata_x4.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/span_kendata_x4.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/span_kendata_x4.onnx'),
 		'size': (128, 8, 4),
 		'scale': 4
 	},
 	'ultra_sharp_x4':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/ultra_sharp_x4.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/ultra_sharp_x4.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/ultra_sharp_x4.onnx'),
 		'size': (128, 8, 4),
 		'scale': 4

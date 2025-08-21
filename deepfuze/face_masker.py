@@ -20,12 +20,12 @@ MODELS : ModelSet =\
 {
 	'face_occluder':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/face_occluder.onnx',
+		'url': 'https://huggingface.co/JackCui/facefusion/resolve/main/face_occluder.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/face_occluder.onnx')
 	},
 	'face_parser':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/face_parser.onnx',
+		'url': 'https://huggingface.co/JackCui/facefusion/resolve/main/face_parser.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/face_parser.onnx')
 	}
 }

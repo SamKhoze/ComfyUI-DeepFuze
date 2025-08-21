@@ -29,31 +29,31 @@ MODELS : ModelSet =\
 	'ddcolor':
 	{
 		'type': 'ddcolor',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/ddcolor.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/ddcolor.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/ddcolor.onnx')
 	},
 	'ddcolor_artistic':
 	{
 		'type': 'ddcolor',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/ddcolor_artistic.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/ddcolor_artistic.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/ddcolor_artistic.onnx')
 	},
 	'deoldify':
 	{
 		'type': 'deoldify',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/deoldify.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/deoldify.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/deoldify.onnx')
 	},
 	'deoldify_artistic':
 	{
 		'type': 'deoldify',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/deoldify_artistic.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/deoldify_artistic.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/deoldify_artistic.onnx')
 	},
 	'deoldify_stable':
 	{
 		'type': 'deoldify',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/deoldify_stable.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/deoldify_stable.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/deoldify_stable.onnx')
 	}
 }

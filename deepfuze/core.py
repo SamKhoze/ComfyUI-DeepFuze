@@ -109,7 +109,7 @@ def cli() -> None:
 	group_uis = program.add_argument_group('uis')
 	group_uis.add_argument('--open-browser', help=wording.get('help.open_browser'), action = 'store_true', default = config.get_bool_value('uis.open_browser'))
 	group_uis.add_argument('--ui-layouts', help = wording.get('help.ui_layouts').format(choices = ', '.join(available_ui_layouts)), default = config.get_str_list('uis.ui_layouts', 'default'), nargs = '+')
-	run(program)
+	return run(program)
 
 
 def apply_config(program : ArgumentParser) -> None:
@@ -208,7 +208,7 @@ def apply_args(program : ArgumentParser) -> None:
 	deepfuze.globals.ui_layouts = args.ui_layouts
 
 
-def run(program : ArgumentParser) -> None:
+def run(program : ArgumentParser) -> int:
 	validate_args(program)
 	apply_args(program)
 	logger.init(deepfuze.globals.log_level)
@@ -219,10 +219,12 @@ def run(program : ArgumentParser) -> None:
 		force_download()
 		return
 	if not pre_check() or not content_analyser.pre_check() or not face_analyser.pre_check() or not face_masker.pre_check() or not voice_extractor.pre_check():
-		return
+		print("pre_check failed")
+		return -1
 	for frame_processor_module in get_frame_processors_modules(deepfuze.globals.frame_processors):
 		if not frame_processor_module.pre_check():
-			return
+			print("pre_check failed")
+			return -1
 	if deepfuze.globals.headless:
 		conditional_process()
 	else:
@@ -230,9 +232,10 @@ def run(program : ArgumentParser) -> None:
 
 		for ui_layout in ui.get_ui_layouts_modules(deepfuze.globals.ui_layouts):
 			if not ui_layout.pre_check():
-				return
+				print("pre_check failed")
+				return -1
 		ui.launch()
-
+	return 0
 
 def destroy() -> None:
 	process_manager.stop()
@@ -298,7 +301,7 @@ def force_download() -> None:
 		face_masker.MODELS,
 		voice_extractor.MODELS
 	]
-	
+
 	for frame_processor_module in get_frame_processors_modules(available_frame_processors):
 		if hasattr(frame_processor_module, 'MODELS'):
 			model_list.append(frame_processor_module.MODELS)

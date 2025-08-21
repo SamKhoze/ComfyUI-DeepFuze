@@ -20,7 +20,7 @@ MODELS : ModelSet =\
 {
 	'open_nsfw':
 	{
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/open_nsfw.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/open_nsfw.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/open_nsfw.onnx')
 	}
 }

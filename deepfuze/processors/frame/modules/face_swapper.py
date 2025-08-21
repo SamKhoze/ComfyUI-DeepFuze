@@ -33,7 +33,7 @@ MODELS : ModelSet =\
 	'blendswap_256':
 	{
 		'type': 'blendswap',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/blendswap_256.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/blendswap_256.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/blendswap_256.onnx'),
 		'template': 'ffhq_512',
 		'size': (256, 256),
@@ -43,7 +43,7 @@ MODELS : ModelSet =\
 	'inswapper_128':
 	{
 		'type': 'inswapper',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/inswapper_128.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/inswapper_128.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/inswapper_128.onnx'),
 		'template': 'arcface_128_v2',
 		'size': (128, 128),
@@ -53,7 +53,7 @@ MODELS : ModelSet =\
 	'inswapper_128_fp16':
 	{
 		'type': 'inswapper',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/inswapper_128_fp16.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/inswapper_128_fp16.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/inswapper_128_fp16.onnx'),
 		'template': 'arcface_128_v2',
 		'size': (128, 128),
@@ -63,7 +63,7 @@ MODELS : ModelSet =\
 	'simswap_256':
 	{
 		'type': 'simswap',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/simswap_256.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/simswap_256.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/simswap_256.onnx'),
 		'template': 'arcface_112_v1',
 		'size': (256, 256),
@@ -73,7 +73,7 @@ MODELS : ModelSet =\
 	'simswap_512_unofficial':
 	{
 		'type': 'simswap',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/simswap_512_unofficial.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/simswap_512_unofficial.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/simswap_512_unofficial.onnx'),
 		'template': 'arcface_112_v1',
 		'size': (512, 512),
@@ -83,7 +83,7 @@ MODELS : ModelSet =\
 	'uniface_256':
 	{
 		'type': 'uniface',
-		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models/uniface_256.onnx',
+		'url': 'https://github.com/facefusion/facefusion-assets/releases/download/models-3.0.0/uniface_256.onnx',
 		'path': resolve_relative_path('../../../models/deepfuze/uniface_256.onnx'),
 		'template': 'ffhq_512',
 		'size': (256, 256),

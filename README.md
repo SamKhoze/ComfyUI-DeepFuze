@@ -1,6 +1,6 @@
 # THIS REPOSITORY IS NOT COMPATIBLE WITH THE LATEST VERSION OF COMFYUI, DUE TO NOT BEING UPDATED #
 # 👉🏼👉🏼👉🏼Please take note of the following information: This repository is compatible and optimized for use with MAC CPU+MPS and Windows with CPU+CUDA. The installation process is not beginner-friendly for enabling CUDA [Toolkit==11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive) and [cuDNN](https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=Agnostic&cuda_version=11) (CUDA Deep Neural Network). If you are unsure about installing CUDA, you can still use the CPU, and no CUDA installation will be necessary. However, if you are able to install CUDA correctly, the processing speed will increase significantly.
-# DeepFuze 
+# DeepFuze
 ### Watch the 4k Quality Video on [YOUTUBE](https://youtu.be/PTXMNz2xyVY)
 ![DeepFuze Lipsync](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/LipsyncDemo.gif)
 
@@ -18,7 +18,7 @@ DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates wit
 
 ---
 
-# Installation & Models Download 
+# Installation & Models Download
 
 ----
 
@@ -34,7 +34,7 @@ OR VS [C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tool
 From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for DeepFuze, and install the node. Restart your ComfyUI, and look at your terminal window to ensure there is no error, or Install from the ComfyUI manager, select "Install Via  GIT URL", and copy past:
 
     https://github.com/SamKhoze/ComfyUI-DeepFuze.git
-	
+
 ![GitInstall](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/Git%20Install.jpg)
 
 
@@ -42,13 +42,13 @@ From [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager) search for D
 
 Restart your ComfyUI
 
-## IMPORTANT NOTE: CUDA INSTALLATION IS NOT BEGINNER-FRIENDLY, IF YOU DON'T KNOW WHAT YOU ARE DOING DO NOT TRY, USE THE CPU VERSION. 
-# CUDA Installation 
+## IMPORTANT NOTE: CUDA INSTALLATION IS NOT BEGINNER-FRIENDLY, IF YOU DON'T KNOW WHAT YOU ARE DOING DO NOT TRY, USE THE CPU VERSION.
+# CUDA Installation
 **[YOUTUBE LINK](https://youtu.be/ZKhFAF6inR4) step by step instructions**
 
 ----
-Install Nvidia CUDA [Toolkit==11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive)  and [cuDNN](https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=Agnostic&cuda_version=11) (CUDA Deep Neural Network) for Deep Learning, you must download the **cuDNN version 8.9.2.26** from the [NVIDIA DEVELOPER cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive), if you don't have developer account you can directly download it from [GoogleDrive](https://drive.google.com/file/d/1sBGH8s7OfmkiyMwXBU2iL01bXyODfXgU/view?usp=drive_link). Ensure install **Cuda1 1.8**. I found this [YOUTUBE](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) video useful for installation. If you have a different version of CUDA here is a [YOUTUBE](https://www.youtube.com/watch?v=I3awjvMZw9A&t=2s) link that guides you on how to uninstall your CUDA. Make sure to create paths in your Environment variable as described on [YOUTUBE VIDEO](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) Restart your computer after creating paths. 
-Confirm your Cuda Installation, paste this code on your terminal window `nvcc --version` you should get a response like this: 
+Install Nvidia CUDA [Toolkit==11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive)  and [cuDNN](https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=Agnostic&cuda_version=11) (CUDA Deep Neural Network) for Deep Learning, you must download the **cuDNN version 8.9.2.26** from the [NVIDIA DEVELOPER cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive), if you don't have developer account you can directly download it from [GoogleDrive](https://drive.google.com/file/d/1sBGH8s7OfmkiyMwXBU2iL01bXyODfXgU/view?usp=drive_link). Ensure install **Cuda1 1.8**. I found this [YOUTUBE](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) video useful for installation. If you have a different version of CUDA here is a [YOUTUBE](https://www.youtube.com/watch?v=I3awjvMZw9A&t=2s) link that guides you on how to uninstall your CUDA. Make sure to create paths in your Environment variable as described on [YOUTUBE VIDEO](https://www.youtube.com/watch?v=ctQi9mU7t9o&t=655s) Restart your computer after creating paths.
+Confirm your Cuda Installation, paste this code on your terminal window `nvcc --version` you should get a response like this:
 
 ```
 nvcc: NVIDIA (R) Cuda compiler driver
@@ -66,7 +66,7 @@ Build cuda_11.8.r11.8/compiler.31833905_0`
 ## For MAC users please set the environment variable before running it
 
 Activate your Virtual Environment, Conda or Venv
-### Install [Pytorch](https://pytorch.org/) 
+### Install [Pytorch](https://pytorch.org/)
 
 [Here](https://developer.apple.com/metal/pytorch/) how to install and test your PyTorch
 
@@ -84,11 +84,11 @@ pip install onnxruntime
 ```
 **macOS needs to install the original dlib.**
 ```
-pip install dlib 
+pip install dlib
 ```
 **Install Text to Speech for Voice Cloning Node**
 ```
-pip install TTS 
+pip install coqui-tts
 ```
 **Navigate into** `custom_nodes` **folder**
 ```
@@ -113,11 +113,11 @@ Clone the repositories:
 
 ### Errors 😾
 
-CV Error: If you encounter the error "ComfyUI_windows_portable\ComfyUI\output\deepfuze\faceswap_file.mp4 could not be loaded with cv," it means that `onnxruntime` is not installed. To fix this, make sure to install `onnxruntime` for CPU and `onnxruntime-gpu` for Windows. Mac users should upgrade OpenCV using the command `pip install --upgrade opencv-python-headless` in their virtual environment. For Windows users, go to ComfyUI Manager, click on "pip install," paste `--upgrade opencv-python-headless`, click OK, and restart your ComfyUI. 
+CV Error: If you encounter the error "ComfyUI_windows_portable\ComfyUI\output\deepfuze\faceswap_file.mp4 could not be loaded with cv," it means that `onnxruntime` is not installed. To fix this, make sure to install `onnxruntime` for CPU and `onnxruntime-gpu` for Windows. Mac users should upgrade OpenCV using the command `pip install --upgrade opencv-python-headless` in their virtual environment. For Windows users, go to ComfyUI Manager, click on "pip install," paste `--upgrade opencv-python-headless`, click OK, and restart your ComfyUI.
 
 ----
 
-Missing zlibwapi.dll error: Search for  NVIDIA zlibwapi.dll file, download it and copy it in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin\zlibwapi.dll 
+Missing zlibwapi.dll error: Search for  NVIDIA zlibwapi.dll file, download it and copy it in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin\zlibwapi.dll
 
 ----
 
@@ -129,10 +129,10 @@ If you get an error: ImportError: cannot import name 'get_full_repo_name' from '
 Run the below codes on your terminal it will solve the issue
 
 ```
-conda install chardet 
+conda install chardet
 ```
 ```
-pip install --upgrade transformers==4.39.2 
+pip install --upgrade transformers==4.39.2
 ```
 
 if you get any error for any packages, open the requirements.txt file with any text editor remove the version from the front of the package name, and reinstall requirments.txt again
@@ -158,7 +158,7 @@ To use the "Openai LLM" node for voice cloning dialogues, you need an OpenAI API
 ![DeepFuze Lipsync Node example](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Lipsync_SimpleWorkflow.jpg)
 
 This node generates lipsyncing video from, video, image, and audio files. For higher quality export the IMAGE output as an image batch instead of a video combined, you can get up to 4k quality image size.
-IMPORTANT: You must load audio with the "VHS load audio" node from the [VideoHelperSuit](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git) node. 
+IMPORTANT: You must load audio with the "VHS load audio" node from the [VideoHelperSuit](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git) node.
 
 **Input Types:**
 - `images`: Extracted frame images as PyTorch tensors.
@@ -246,7 +246,7 @@ This node Swaps, Enhances, and Restores faces from, video, and image. or higher 
 
 **DeepFuze_TTS voice cloning supports 17 languages: English (en), Spanish (es), French (fr), German (de), Italian (it), Portuguese (pt), Polish (pl), Turkish (tr), Russian (ru), Dutch (nl), Czech (cs), Arabic (ar), Chinese (zh-cn), Japanese (ja), Hungarian (hu), Korean (ko) Hindi (hi).**
 
-This node is used to clone any voice from typed input. The audio file should be 10-15 seconds long for better results and should not have much noise. To avoid any sample rate error, load MP3 audio and only work with [AudioScheduler](https://github.com/a1lazydog/ComfyUI-AudioScheduler) node. We are working on developing a converter node to solve this issue. 
+This node is used to clone any voice from typed input. The audio file should be 10-15 seconds long for better results and should not have much noise. To avoid any sample rate error, load MP3 audio and only work with [AudioScheduler](https://github.com/a1lazydog/ComfyUI-AudioScheduler) node. We are working on developing a converter node to solve this issue.
 
 **Input Types:**
 - `audio`: An instance of loaded audio data.
@@ -261,7 +261,7 @@ This node is used to clone any voice from typed input. The audio file should be 
 ![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM_Node.jpg)
 ![DeepFuze Openai_Node](https://github.com/SamKhoze/ComfyUI-DeepFuze/blob/main/images/DeepFuze_Openai_LLM.jpg)
 
-The "LLM Integration" node is used to incorporate LLM (Language Model) into the voice cloning process. You can input your dialogue and configure parameters, and the AI-generated texts will be employed for voice cloning. Furthermore, you can utilize this node in place of ChatGPT to produce text from LLM or to ask any questions in the same manner as you would with ChatGPT. You can view the output of the DeepFuze_LLM by connecting the LLM_RESPONSE to the "Display Any" node from [rgthree-comfy](https://github.com/rgthree/rgthree-comfy) this node also can be used for prompt generations and any nodes input texts. 
+The "LLM Integration" node is used to incorporate LLM (Language Model) into the voice cloning process. You can input your dialogue and configure parameters, and the AI-generated texts will be employed for voice cloning. Furthermore, you can utilize this node in place of ChatGPT to produce text from LLM or to ask any questions in the same manner as you would with ChatGPT. You can view the output of the DeepFuze_LLM by connecting the LLM_RESPONSE to the "Display Any" node from [rgthree-comfy](https://github.com/rgthree/rgthree-comfy) this node also can be used for prompt generations and any nodes input texts.
 
 **Input Types:**
 - `user_query`: Type your dialogues.
@@ -419,11 +419,11 @@ print(f"Lipsynced video saved at {output_path}")
 ----
 # Acknowledgements
 
-This repository could not have been completed without the contributions from [FaceFusion](https://github.com/facefusion/facefusion), [InsightFace](https://github.com/deepinsight/insightface),[SadTalker](https://github.com/OpenTalker/SadTalker/tree/main), [Facexlib](https://github.com/xinntao/facexlib), [GFPGAN](https://github.com/TencentARC/GFPGAN), [GPEN](https://github.com/yangxy/GPEN), [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN), [TTS](https://github.com/coqui-ai/TTS/tree/dev), [SSD](https://pytorch.org/hub/nvidia_deeplearningexamples_ssd/), and [wav2lip](https://github.com/Rudrabha/Wav2Lip), 
+This repository could not have been completed without the contributions from [FaceFusion](https://github.com/facefusion/facefusion), [InsightFace](https://github.com/deepinsight/insightface),[SadTalker](https://github.com/OpenTalker/SadTalker/tree/main), [Facexlib](https://github.com/xinntao/facexlib), [GFPGAN](https://github.com/TencentARC/GFPGAN), [GPEN](https://github.com/yangxy/GPEN), [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN), [TTS](https://github.com/coqui-ai/TTS/tree/dev), [SSD](https://pytorch.org/hub/nvidia_deeplearningexamples_ssd/), and [wav2lip](https://github.com/Rudrabha/Wav2Lip),
 
-1. Please carefully read and comply with the open-source license applicable to this code and models before using it. 
+1. Please carefully read and comply with the open-source license applicable to this code and models before using it.
 2. Please carefully read and comply with the intellectual property declaration applicable to this code and models before using it.
-3. This open-source code runs completely offline and does not collect any personal information or other data. If you use this code to provide services to end-users and collect related data, please take necessary compliance measures according to applicable laws and regulations (such as publishing privacy policies, adopting necessary data security strategies, etc.). If the collected data involves personal information, user consent must be obtained (if applicable). 
+3. This open-source code runs completely offline and does not collect any personal information or other data. If you use this code to provide services to end-users and collect related data, please take necessary compliance measures according to applicable laws and regulations (such as publishing privacy policies, adopting necessary data security strategies, etc.). If the collected data involves personal information, user consent must be obtained (if applicable).
 4. It is prohibited to use this open-source code for activities that harm the legitimate rights and interests of others (including but not limited to fraud, deception, infringement of others' portrait rights, reputation rights, etc.), or other behaviors that violate applicable laws and regulations or go against social ethics and good customs (including providing incorrect or false information, terrorist, child/minors pornography and violent information, etc.). Otherwise, you may be liable for legal responsibilities.
 
-The DeepFuze code is developed by Dr. Sam Khoze and his team. Feel free to use the DeepFuze code for personal, research, academic, and commercial purposes. You can create videos with this tool, but please make sure to follow local laws and use it responsibly. The developers will not be responsible for any misuse of the tool by users. 
+The DeepFuze code is developed by Dr. Sam Khoze and his team. Feel free to use the DeepFuze code for personal, research, academic, and commercial purposes. You can create videos with this tool, but please make sure to follow local laws and use it responsibly. The developers will not be responsible for any misuse of the tool by users.
