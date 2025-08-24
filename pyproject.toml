@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-deepfuze"
+description = "DeepFuze is a state-of-the-art deep learning tool that seamlessly integrates with ComfyUI to revolutionize facial transformations, lipsyncing, video generation, voice cloning, face swapping, and lipsync translation. Leveraging advanced algorithms, DeepFuze enables users to combine audio and video with unparalleled realism, ensuring perfectly synchronized facial movements. This innovative solution is ideal for content creators, animators, developers, and anyone seeking to elevate their video editing projects with sophisticated AI-driven features."
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["filetype==1.2.0", "gradio==3.50.2", "numpy==1.26.4", "onnx==1.16.0", "onnxruntime==1.17.3", "opencv-python==4.9.0.80", "psutil==5.9.8", "tqdm==4.66.4", "scipy==1.13.0", "openai", "sounddevice", "pydub", "TTS", "torchsde", "imageio_ffmpeg", "kornia", "spandrel"]
+
+[project.urls]
+Repository = "https://github.com/SamKhoze/ComfyUI-DeepFuze"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-DeepFuze"
+Icon = ""
