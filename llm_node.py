@@ -6,7 +6,7 @@ from openai import OpenAI
 MINIMAX_OPENAI_BASE_URL_GLOBAL = 'https://api.minimax.io/v1'
 MINIMAX_OPENAI_BASE_URL_CN = 'https://api.minimaxi.com/v1'
 MINIMAX_MODEL_IDS = ['MiniMax-M3', 'MiniMax-M2.7']
-MINIMAX_REGIONS = ['global', 'cn']
+MINIMAX_REGIONS = ['global_en', 'cn_zh']
 
 
 class LLM_node:
@@ -24,9 +24,7 @@ class LLM_node:
 				'max_tokens': ('INT', {'default': 250, 'min': 10, 'max': 2000, 'step': 10}),
 				'temperature': ('FLOAT', {'default': 0, 'min': 0, 'max': 1, 'step': 0.1}),
 				'timeout': ('INT', {'default': 10, 'min': 1, 'max': 200, 'step': 1}),
-			},
-			'hidden': {
-				'minimax_region': (MINIMAX_REGIONS,),
+				'minimax_region': (MINIMAX_REGIONS, {'default': 'global_en'}),
 			},
 		}
 
@@ -36,15 +34,15 @@ class LLM_node:
 	FUNCTION = 'run_llm'
 
 	@staticmethod
-	def get_base_url(model_name: str, minimax_region: str) -> str:
+	def get_base_url(model_name: str, minimax_region: str):
 		# MiniMax models are routed through the OpenAI-compatible endpoint of
 		# the selected regional base URL; other models use the default OpenAI
 		# endpoint.
 		if model_name in MINIMAX_MODEL_IDS:
-			return MINIMAX_OPENAI_BASE_URL_CN if minimax_region == 'cn' else MINIMAX_OPENAI_BASE_URL_GLOBAL
+			return MINIMAX_OPENAI_BASE_URL_CN if minimax_region == 'cn_zh' else MINIMAX_OPENAI_BASE_URL_GLOBAL
 		return None
 
-	def run_llm(self, system_prompt, user_query, model_name, temperature, api_key, max_tokens, timeout, minimax_region='global'):
+	def run_llm(self, system_prompt, user_query, model_name, temperature, api_key, max_tokens, timeout, minimax_region='global_en'):
 		base_url = self.get_base_url(model_name, minimax_region)
 		if base_url:
 			client = OpenAI(api_key=api_key, base_url=base_url)
