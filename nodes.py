@@ -29,6 +29,7 @@ from comfy.utils import ProgressBar
 from .llm_node import LLM_node
 from .audio_playback import PlayBackAudio
 from .audio_playback import SaveAudio
+from .minimax_voice_clone import MiniMaxVoiceClone
 
 result_dir = os.path.join(folder_paths.get_output_directory(),"deepfuze")
 audio_dir = os.path.join(folder_paths.get_input_directory(),"audio")
@@ -1515,6 +1516,7 @@ NODE_CLASS_MAPPINGS = {
     "DeepFuzeAdavance": DeepFuzeAdavance,
     "DeepFuzeFaceSwap": DeepFuzeFaceSwap,
     "TTS_generation":TTS_generation,
+    "MiniMaxVoiceClone": MiniMaxVoiceClone,
     "LLM_node": LLM_node,
     "PlayBackAudio": PlayBackAudio,
 	"DeepFuze Save":SaveAudio,
@@ -1524,6 +1526,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "DeepFuzeAdavance": "DeepFuze Lipsync",
 	"DeepFuzeFaceSwap": "DeepFuze FaceSwap",
     "TTS_generation":"DeepFuze TTS",
+    "MiniMaxVoiceClone": "MiniMax Voice Clone",
     "LLM_node": "DeepFuze Openai LLM",
     "PlayBackAudio": "Play Audio",
 	"DeepFuze Save":"DeepFuze Save Audio",

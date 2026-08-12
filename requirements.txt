@@ -6,6 +6,7 @@ opencv-python==4.9.0.80
 psutil==5.9.8
 scipy==1.13.0
 openai
+requests
 sounddevice
 pydub
 torchsde
