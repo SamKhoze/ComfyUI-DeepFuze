@@ -5,7 +5,7 @@ from openai import OpenAI
 # global and CN regional endpoints instead of the default OpenAI endpoint.
 MINIMAX_OPENAI_BASE_URL_GLOBAL = 'https://api.minimax.io/v1'
 MINIMAX_OPENAI_BASE_URL_CN = 'https://api.minimaxi.com/v1'
-MINIMAX_MODEL_IDS = ['MiniMax-M3', 'MiniMax-M2.7']
+MINIMAX_MODEL_IDS = ['MiniMax-M3.1-Flash', 'MiniMax-M3']
 MINIMAX_REGIONS = ['global_en', 'cn_zh']
 
 
@@ -33,12 +33,21 @@ class LLM_node:
 	RETURN_NAMES = ('LLM_RESPONSE',)
 	FUNCTION = 'run_llm'
 
+	@classmethod
+	def VALIDATE_INPUTS(cls, model_name):
+		# Saved workflows may explicitly select a MiniMax model no longer in the picker.
+		if isinstance(model_name, str) and model_name.startswith('MiniMax-'):
+			return True
+		if model_name in cls.INPUT_TYPES()['required']['model_name'][0]:
+			return True
+		return 'Unknown model_name'
+
 	@staticmethod
 	def get_base_url(model_name: str, minimax_region: str):
 		# MiniMax models are routed through the OpenAI-compatible endpoint of
 		# the selected regional base URL; other models use the default OpenAI
 		# endpoint.
-		if model_name in MINIMAX_MODEL_IDS:
+		if isinstance(model_name, str) and model_name.startswith('MiniMax-'):
 			return MINIMAX_OPENAI_BASE_URL_CN if minimax_region == 'cn_zh' else MINIMAX_OPENAI_BASE_URL_GLOBAL
 		return None
 
